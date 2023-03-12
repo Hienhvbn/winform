@@ -16,5 +16,6 @@ namespace quan_li_ban_sach
         {
             InitializeComponent();
         }
+        // hello mình là Công khongdeptrai !
     }
 }
