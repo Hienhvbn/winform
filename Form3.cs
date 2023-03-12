@@ -16,6 +16,11 @@ namespace quan_li_ban_sach
         {
             InitializeComponent();
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
         // hello mình là Công khongdeptrai !
     }
 }

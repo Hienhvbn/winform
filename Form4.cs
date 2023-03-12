@@ -16,5 +16,10 @@ namespace quan_li_ban_sach
         {
             InitializeComponent();
         }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+            // hello mình không phải Công
+        }
     }
 }
