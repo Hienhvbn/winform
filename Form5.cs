@@ -16,5 +16,10 @@ namespace quan_li_ban_sach
         {
             InitializeComponent();
         }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            // ahihi do ngoccc
+        }
     }
 }
