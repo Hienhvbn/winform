@@ -99,36 +99,6 @@ namespace qlsach
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            if (txtMaSach.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập mã sách muốn sửa");
-                txtMaSach.Focus();
-                return;
-            }
-            else
-            {
-                if (MessageBox.Show("Bạn có muốn sửa không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    string sqlsua = "UPDATE Books SET TenSach = '" + txtTenSach.Text.Trim() + "'," + "TacGia = '" + txtTacGia.Text.Trim() + "'," + "NXB = '" + txtNXB.Text.Trim() + "'," + "SoLuong = " + txtSoLuong.Text.Trim() + "," + "GiaTien = " + txtGiaTien.Text.Trim() + " WHERE MaSach = '" + txtMaSach.Text.Trim() + "'";
-                    try
-                    {
-                        SqlCommand command = new SqlCommand(sqlsua, con);
-                        command.ExecuteNonQuery();
-                        loaddulieulen();
-                        MessageBox.Show("Sửa thành công");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Sửa không thành công");
-                    }
-                }
-
-            }
-
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (txtMaSach.Text == "")
@@ -156,7 +126,35 @@ namespace qlsach
                 }
 
             }
+        }
 
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (txtMaSach.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã sách muốn sửa");
+                txtMaSach.Focus();
+                return;
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có muốn sửa không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string sqlsua = "UPDATE Books SET TenSach = '" + txtTenSach.Text.Trim() + "'," + "TacGia = '" + txtTacGia.Text.Trim() + "'," + "NXB = '" + txtNXB.Text.Trim() + "'," + "SoLuong = " + txtSoLuong.Text.Trim() + "," + "GiaTien = " + txtGiaTien.Text.Trim() + " WHERE MaSach = '" + txtMaSach.Text.Trim() + "'";
+                    try
+                    {
+                        SqlCommand command = new SqlCommand(sqlsua, con);
+                        command.ExecuteNonQuery();
+                        loaddulieulen();
+                        MessageBox.Show("Sửa thành công");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Sửa không thành công");
+                    }
+                }
+
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -170,65 +168,6 @@ namespace qlsach
             txtSoLuong.Text = Convert.ToString(row.Cells["SoLuong"].Value);
             txtGiaTien.Text = Convert.ToString(row.Cells["GiaTien"].Value);
         }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            txtMaSach.Text = "";
-            txtTenSach.Text = "";
-            txtTacGia.Text = "";
-            txtNXB.Text = "";
-            txtSoLuong.Text = "";
-            txtGiaTien.Text = "";
-            txtMaSach.Focus();
-        }
-
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có muốn thoát không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-
-        }
-
-        private void txtMaSach_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtTenSach.Focus();
-            }
-        }
-
-        private void txtTenSach_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtTacGia.Focus();
-            }
-        }
-
-        private void txtTacGia_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtNXB.Focus();
-            }
-        }
-
-        private void txtNXB_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtSoLuong.Focus();
-            }
-        }
-
-        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtGiaTien.Focus();
-            }
-        }
     }
 }
+
