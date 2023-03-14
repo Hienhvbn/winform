@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
-namespace qlsach
+namespace quan_li_ban_sach
 {
     public partial class frmQuanLySach : Form
     {

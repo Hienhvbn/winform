@@ -1,4 +1,4 @@
-﻿namespace qlsach
+﻿namespace quan_li_ban_sach
 {
     partial class frmQuanLySach
     {
@@ -143,7 +143,6 @@
             // 
             // btnThem
             // 
-            this.btnThem.Image = global::quan_li_ban_sach.Properties.Resources.add_row;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThem.Location = new System.Drawing.Point(3, 3);
             this.btnThem.Name = "btnThem";

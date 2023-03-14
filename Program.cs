@@ -1,4 +1,4 @@
-﻿using qlsach;
+﻿using quan_li_ban_sach;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace quan_li_ban_sach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmQuanLySach());
+            Application.Run(new frmtrang_chu());
         }
     }
 }
