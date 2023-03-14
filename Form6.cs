@@ -16,5 +16,10 @@ namespace quan_li_ban_sach
         {
             InitializeComponent();
         }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            // ahihi do ngoc
+        }
     }
 }
