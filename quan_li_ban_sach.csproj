@@ -131,6 +131,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +154,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>qlbs.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Ampeross-Qetto-2-Trash.256.png" />
+    <None Include="Resources\i_delete.png" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\pngtree-trash-icon-for-your-project-png-image_1731152.jpg" />
+    <None Include="Resources\add_row.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
