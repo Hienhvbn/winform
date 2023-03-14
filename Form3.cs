@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace quan_li_ban_sach
 {
-    public partial class Form3 : Form
+    public partial class frmTimKiemHD : Form
     {
-        public Form3()
+        public frmTimKiemHD()
         {
             InitializeComponent();
         }

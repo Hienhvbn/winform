@@ -73,8 +73,9 @@
             // 
             this.mnuthoat.Name = "mnuthoat";
             this.mnuthoat.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mnuthoat.Size = new System.Drawing.Size(180, 22);
+            this.mnuthoat.Size = new System.Drawing.Size(146, 22);
             this.mnuthoat.Text = "Thoát";
+            this.mnuthoat.Click += new System.EventHandler(this.mnuthoat_Click);
             // 
             // mnudanhmuc
             // 
@@ -89,19 +90,19 @@
             // mnunhanvien
             // 
             this.mnunhanvien.Name = "mnunhanvien";
-            this.mnunhanvien.Size = new System.Drawing.Size(180, 22);
+            this.mnunhanvien.Size = new System.Drawing.Size(137, 22);
             this.mnunhanvien.Text = "Nhân viên";
             // 
             // mnukhachhang
             // 
             this.mnukhachhang.Name = "mnukhachhang";
-            this.mnukhachhang.Size = new System.Drawing.Size(180, 22);
+            this.mnukhachhang.Size = new System.Drawing.Size(137, 22);
             this.mnukhachhang.Text = "Khách hàng";
             // 
             // mnusanpham
             // 
             this.mnusanpham.Name = "mnusanpham";
-            this.mnusanpham.Size = new System.Drawing.Size(180, 22);
+            this.mnusanpham.Size = new System.Drawing.Size(137, 22);
             this.mnusanpham.Text = "Sản phẩm";
             // 
             // mnuhoadon
@@ -117,6 +118,7 @@
             this.mnuhoadonban.Name = "mnuhoadonban";
             this.mnuhoadonban.Size = new System.Drawing.Size(180, 22);
             this.mnuhoadonban.Text = "Hoá đơn bán";
+            this.mnuhoadonban.Click += new System.EventHandler(this.mnuhoadonban_Click);
             // 
             // mnutimkiem
             // 
@@ -131,19 +133,19 @@
             // mnutimkiemhoadon
             // 
             this.mnutimkiemhoadon.Name = "mnutimkiemhoadon";
-            this.mnutimkiemhoadon.Size = new System.Drawing.Size(180, 22);
+            this.mnutimkiemhoadon.Size = new System.Drawing.Size(137, 22);
             this.mnutimkiemhoadon.Text = "Hoá đơn";
             // 
             // mnutimkiemsanpham
             // 
             this.mnutimkiemsanpham.Name = "mnutimkiemsanpham";
-            this.mnutimkiemsanpham.Size = new System.Drawing.Size(180, 22);
+            this.mnutimkiemsanpham.Size = new System.Drawing.Size(137, 22);
             this.mnutimkiemsanpham.Text = "Sản phẩm";
             // 
             // mnutimkiemkhachhang
             // 
             this.mnutimkiemkhachhang.Name = "mnutimkiemkhachhang";
-            this.mnutimkiemkhachhang.Size = new System.Drawing.Size(180, 22);
+            this.mnutimkiemkhachhang.Size = new System.Drawing.Size(137, 22);
             this.mnutimkiemkhachhang.Text = "Khách hàng";
             // 
             // mnubaocao
@@ -158,13 +160,13 @@
             // mnuhangton
             // 
             this.mnuhangton.Name = "mnuhangton";
-            this.mnuhangton.Size = new System.Drawing.Size(180, 22);
+            this.mnuhangton.Size = new System.Drawing.Size(130, 22);
             this.mnuhangton.Text = "Hàng tồn";
             // 
             // mnudoanhthu
             // 
             this.mnudoanhthu.Name = "mnudoanhthu";
-            this.mnudoanhthu.Size = new System.Drawing.Size(180, 22);
+            this.mnudoanhthu.Size = new System.Drawing.Size(130, 22);
             this.mnudoanhthu.Text = "Doanh thu";
             // 
             // frmtrang_chu
@@ -177,6 +179,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmtrang_chu";
             this.Text = "Phần mềm quản lí bán sách";
+            this.Load += new System.EventHandler(this.frmtrang_chu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
