@@ -21,7 +21,7 @@ namespace quan_li_ban_sach
             {
                 con = new SqlConnection(chuoiketnoi); // truyen vao chuoi ket noi
                 con.Open();// mo ket noi
-                //MessageBox.Show("Kết nối thành công");
+                MessageBox.Show("Kết nối thành công");
             }
             catch
             {

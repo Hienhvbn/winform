@@ -176,7 +176,7 @@
             // lblTenSach
             // 
             this.lblTenSach.AutoSize = true;
-            this.lblTenSach.Location = new System.Drawing.Point(29, 95);
+            this.lblTenSach.Location = new System.Drawing.Point(29, 91);
             this.lblTenSach.Name = "lblTenSach";
             this.lblTenSach.Size = new System.Drawing.Size(55, 13);
             this.lblTenSach.TabIndex = 10;
@@ -185,7 +185,7 @@
             // lblTacGia
             // 
             this.lblTacGia.AutoSize = true;
-            this.lblTacGia.Location = new System.Drawing.Point(29, 119);
+            this.lblTacGia.Location = new System.Drawing.Point(29, 122);
             this.lblTacGia.Name = "lblTacGia";
             this.lblTacGia.Size = new System.Drawing.Size(46, 13);
             this.lblTacGia.TabIndex = 11;
@@ -265,7 +265,7 @@
             // 
             // txtNXB
             // 
-            this.txtNXB.Location = new System.Drawing.Point(328, 72);
+            this.txtNXB.Location = new System.Drawing.Point(339, 72);
             this.txtNXB.Name = "txtNXB";
             this.txtNXB.Size = new System.Drawing.Size(100, 20);
             this.txtNXB.TabIndex = 20;

@@ -65,9 +65,9 @@ namespace quan_li_ban_sach
             string sql;
             sql = "SELECT a.MaHang, b.TenHang, a.SoLuong, b.DonGiaBan, a.GiamGia,a.ThanhTien FROM tblChiTietHDBan AS a, tblHang AS b WHERE a.MaHDBan = N'" + txtMaHDBan.Text + "' AND a.MaHang=b.MaHang";
             //tblCTHDB = functions.GetDataToTable(sql);
-            dgvHDBanHang.DataSource = tblCTHDB;
-            dgvHDBanHang.Columns[0].HeaderText = "Mã hàng";
-            dgvHDBanHang.Columns[1].HeaderText = "Tên hàng";
+            //dgvHDBanHang.DataSource = tblCTHDB;
+            //dgvHDBanHang.Columns[0].HeaderText = "Mã hàng";
+            /*dgvHDBanHang.Columns[1].HeaderText = "Tên hàng";
             dgvHDBanHang.Columns[2].HeaderText = "Số lượng";
             dgvHDBanHang.Columns[3].HeaderText = "Đơn giá";
             dgvHDBanHang.Columns[4].HeaderText = "Giảm giá %";
@@ -79,7 +79,7 @@ namespace quan_li_ban_sach
             dgvHDBanHang.Columns[4].Width = 90;
             dgvHDBanHang.Columns[5].Width = 90;
             dgvHDBanHang.AllowUserToAddRows = false;
-            dgvHDBanHang.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvHDBanHang.EditMode = DataGridViewEditMode.EditProgrammatically;*/
         }
 
         private void frmhoadonban_Load(object sender, EventArgs e)

@@ -178,6 +178,10 @@
             // cboMaKhach
             // 
             this.cboMaKhach.FormattingEnabled = true;
+            this.cboMaKhach.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03"});
             this.cboMaKhach.Location = new System.Drawing.Point(525, 20);
             this.cboMaKhach.Name = "cboMaKhach";
             this.cboMaKhach.Size = new System.Drawing.Size(167, 21);
