@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="class\functions.cs" />
     <Compile Include="frmtrang_chu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,27 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using qlbansach;
 
 namespace quan_li_ban_sach
 {
     public partial class frmhoadonban : Form
     {
-        string chuoiketnoi = "Server = VHIEN03\\MSSQLLocalDB; Database = Quanlibansach; Integrated Security = True";
-        SqlConnection con = new SqlConnection();
-        private void ketnoicsdl()
-        {
-            try
-            {
-                con = new SqlConnection(chuoiketnoi); // truyen vao chuoi ket noi
-                con.Open();// mo ket noi
-                MessageBox.Show("Kết nối thành công");
-            }
-            catch
-            {
-                MessageBox.Show("Kết nối không thành công");
-            }
-        }
+        DataTable tblCTHDB; //Bảng chi tiết hoá đơn bán
         public frmhoadonban()
         {
             InitializeComponent();
@@ -74,24 +60,57 @@ namespace quan_li_ban_sach
 
         }
 
+        private void LoadDataGridView()
+        {
+            string sql;
+            sql = "SELECT a.MaHang, b.TenHang, a.SoLuong, b.DonGiaBan, a.GiamGia,a.ThanhTien FROM tblChiTietHDBan AS a, tblHang AS b WHERE a.MaHDBan = N'" + txtMaHDBan.Text + "' AND a.MaHang=b.MaHang";
+            tblCTHDB = functions.GetDataToTable(sql);
+            dgvHDBanHang.DataSource = tblCTHDB;
+            dgvHDBanHang.Columns[0].HeaderText = "Mã hàng";
+            dgvHDBanHang.Columns[1].HeaderText = "Tên hàng";
+            dgvHDBanHang.Columns[2].HeaderText = "Số lượng";
+            dgvHDBanHang.Columns[3].HeaderText = "Đơn giá";
+            dgvHDBanHang.Columns[4].HeaderText = "Giảm giá %";
+            dgvHDBanHang.Columns[5].HeaderText = "Thành tiền";
+            dgvHDBanHang.Columns[0].Width = 80;
+            dgvHDBanHang.Columns[1].Width = 130;
+            dgvHDBanHang.Columns[2].Width = 80;
+            dgvHDBanHang.Columns[3].Width = 90;
+            dgvHDBanHang.Columns[4].Width = 90;
+            dgvHDBanHang.Columns[5].Width = 90;
+            dgvHDBanHang.AllowUserToAddRows = false;
+            dgvHDBanHang.EditMode = DataGridViewEditMode.EditProgrammatically;
+        }
+
         private void frmhoadonban_Load(object sender, EventArgs e)
         {
-            ketnoicsdl();
             btnThem.Enabled = true;
             btnLuu.Enabled = false;
             btnXoa.Enabled = false;
-            btnInHoaDon.Enabled = false;
             txtMaHDBan.ReadOnly = true;
             txtTenNhanVien.ReadOnly = true;
             txtTenKhach.ReadOnly = true;
             txtDiaChi.ReadOnly = true;
             txtDienThoai.ReadOnly = true;
-            txtTenHang.ReadOnly = true;
-            txtDonGiaBan.ReadOnly = true;
+            txttensach.ReadOnly = true;
+            txtdongia.ReadOnly = true;
             txtThanhTien.ReadOnly = true;
             txtTongTien.ReadOnly = true;
             txtGiamGia.Text = "0";
             txtTongTien.Text = "0";
+            functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhach", cboMaKhach, "MaKhach", "MaKhach");
+            cboMaKhach.SelectedIndex = -1;
+            functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "TenKhach");
+            cboMaNhanVien.SelectedIndex = -1;
+            functions.FillCombo("SELECT MaHang, TenHang FROM tblHang", cboMaHang, "MaHang", "MaHang");
+            cboMaHang.SelectedIndex = -1;
+            //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
+            if (txtMaHDBan.Text != "")
+            {
+                //LoadInfoHoaDon();
+                btnXoa.Enabled = true;
+            }
+            LoadDataGridView();
         }
     }
 }
