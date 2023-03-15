@@ -20,12 +20,13 @@ namespace quan_li_ban_sach
 
         private void frmtrang_chu_Load(object sender, EventArgs e)
         {
-            functions.Connect(); //Mở kết nối
+            //Class.functions.Connect(); //Mở kết nối
+
         }
 
         private void mnuthoat_Click(object sender, EventArgs e)
         {
-            functions.Disconnect();
+            //Class.functions.Disconnect(); //Đóng kết nối
             Application.Exit(); //Thoát
         }
 
