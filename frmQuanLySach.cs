@@ -49,43 +49,43 @@ namespace quan_li_ban_sach
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (lblMaSach.Text == "")
+            if (txtMaSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã sách");
-                lblMaSach.Focus();
+                txtMaSach.Focus();
                 return;
             }
-            if (lblTenSach.Text == "")
+            if (txtTenSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập tên sách");
-                lblTenSach.Focus();
+                txtTenSach.Focus();
                 return;
             }
-            if (lblTacGia.Text == "")
+            if (txtTacGia.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập tác giả");
-                lblTacGia.Focus();
+                txtTacGia.Focus();
                 return;
             }
-            if (lblNXB.Text == "")
+            if (txtNXB.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập NXB");
-                lblNXB.Focus();
+                txtNXB.Focus();
                 return;
             }
-            if (lblSoLuong.Text == "")
+            if (txtSoLuong.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập số lượng");
-                lblSoLuong.Focus();
+                txtSoLuong.Focus();
                 return;
             }
-            if (lblGiaTien.Text == "")
+            if (txtGiaTien.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập giá tiền");
-                lblGiaTien.Focus();
+                txtGiaTien.Focus();
                 return;
             }
-            string sqlthem = "INSERT INTO Books VALUES ( '" + lblMaSach.Text.Trim() + "','" + lblTenSach.Text.Trim() + "','" + lblTacGia.Text.Trim() + "','" + lblNXB.Text.Trim() + "','" + lblSoLuong.Text.Trim() + "','" + lblGiaTien.Text.Trim() + "')";
+            string sqlthem = "INSERT INTO Books VALUES ( '" + txtMaSach.Text.Trim() + "','" + txtTenSach.Text.Trim() + "','" + txtTacGia.Text.Trim() + "','" + txtNXB.Text.Trim() + "','" + txtSoLuong.Text.Trim() + "','" + txtGiaTien.Text.Trim() + "')";
             try
             {
                 SqlCommand command = new SqlCommand(sqlthem, con);
@@ -101,17 +101,17 @@ namespace quan_li_ban_sach
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (lblMaSach.Text == "")
+            if (txtMaSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã sách muốn xóa");
-                lblMaSach.Focus();
+                txtMaSach.Focus();
                 return;
             }
             else
             {
                 if (MessageBox.Show("Bạn có muốn xóa không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string sqlxoa = "DELETE Books WHERE MaSach = '" + lblMaSach.Text.Trim() + "'";
+                    string sqlxoa = "DELETE Books WHERE MaSach = '" + txtMaSach.Text.Trim() + "'";
                     try
                     {
                         SqlCommand command = new SqlCommand(sqlxoa, con);
@@ -130,17 +130,17 @@ namespace quan_li_ban_sach
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (lblMaSach.Text == "")
+            if (txtMaSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã sách muốn sửa");
-                lblMaSach.Focus();
+                txtMaSach.Focus();
                 return;
             }
             else
             {
                 if (MessageBox.Show("Bạn có muốn sửa không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string sqlsua = "UPDATE Books SET TenSach = '" + lblTenSach.Text.Trim() + "'," + "TacGia = '" + lblTacGia.Text.Trim() + "'," + "NXB = '" + lblNXB.Text.Trim() + "'," + "SoLuong = " + lblSoLuong.Text.Trim() + "," + "GiaTien = " + lblGiaTien.Text.Trim() + " WHERE MaSach = '" + lblMaSach.Text.Trim() + "'";
+                    string sqlsua = "UPDATE Books SET TenSach = '" + txtTenSach.Text.Trim() + "'," + "TacGia = '" + txtTacGia.Text.Trim() + "'," + "NXB = '" + txtNXB.Text.Trim() + "'," + "SoLuong = " + txtSoLuong.Text.Trim() + "," + "GiaTien = " + txtGiaTien.Text.Trim() + " WHERE MaSach = '" + txtMaSach.Text.Trim() + "'";
                     try
                     {
                         SqlCommand command = new SqlCommand(sqlsua, con);
@@ -161,12 +161,12 @@ namespace quan_li_ban_sach
         {
             DataGridViewRow row = new DataGridViewRow();
             row = dataGridView1.Rows[e.RowIndex];
-            lblMaSach.Text = Convert.ToString(row.Cells["MaSach"].Value);
-            lblTenSach.Text = Convert.ToString(row.Cells["TenSach"].Value);
-            lblTacGia.Text = Convert.ToString(row.Cells["TacGia"].Value);
-            lblNXB.Text = Convert.ToString(row.Cells["NXB"].Value);
-            lblSoLuong.Text = Convert.ToString(row.Cells["SoLuong"].Value);
-            lblGiaTien.Text = Convert.ToString(row.Cells["GiaTien"].Value);
+            txtMaSach.Text = Convert.ToString(row.Cells["MaSach"].Value);
+            txtTenSach.Text = Convert.ToString(row.Cells["TenSach"].Value);
+            txtTacGia.Text = Convert.ToString(row.Cells["TacGia"].Value);
+            txtNXB.Text = Convert.ToString(row.Cells["NXB"].Value);
+            txtSoLuong.Text = Convert.ToString(row.Cells["SoLuong"].Value);
+            txtGiaTien.Text = Convert.ToString(row.Cells["GiaTien"].Value);
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -220,6 +220,11 @@ namespace quan_li_ban_sach
             {
                 txtGiaTien.Focus();
             }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }////

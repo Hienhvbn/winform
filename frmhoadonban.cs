@@ -64,7 +64,7 @@ namespace quan_li_ban_sach
         {
             string sql;
             sql = "SELECT a.MaHang, b.TenHang, a.SoLuong, b.DonGiaBan, a.GiamGia,a.ThanhTien FROM tblChiTietHDBan AS a, tblHang AS b WHERE a.MaHDBan = N'" + txtMaHDBan.Text + "' AND a.MaHang=b.MaHang";
-            tblCTHDB = functions.GetDataToTable(sql);
+            //tblCTHDB = functions.GetDataToTable(sql);
             dgvHDBanHang.DataSource = tblCTHDB;
             dgvHDBanHang.Columns[0].HeaderText = "Mã hàng";
             dgvHDBanHang.Columns[1].HeaderText = "Tên hàng";
@@ -98,11 +98,11 @@ namespace quan_li_ban_sach
             txtTongTien.ReadOnly = true;
             txtGiamGia.Text = "0";
             txtTongTien.Text = "0";
-            functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhach", cboMaKhach, "MaKhach", "MaKhach");
+            //functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhach", cboMaKhach, "MaKhach", "MaKhach");
             cboMaKhach.SelectedIndex = -1;
-            functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "TenKhach");
+            //functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "TenKhach");
             cboMaNhanVien.SelectedIndex = -1;
-            functions.FillCombo("SELECT MaHang, TenHang FROM tblHang", cboMaHang, "MaHang", "MaHang");
+            //functions.FillCombo("SELECT MaHang, TenHang FROM tblHang", cboMaHang, "MaHang", "MaHang");
             cboMaHang.SelectedIndex = -1;
             //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
             if (txtMaHDBan.Text != "")

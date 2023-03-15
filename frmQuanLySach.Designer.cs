@@ -120,6 +120,7 @@
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -165,7 +166,7 @@
             // lblMaSach
             // 
             this.lblMaSach.AutoSize = true;
-            this.lblMaSach.Location = new System.Drawing.Point(19, 21);
+            this.lblMaSach.Location = new System.Drawing.Point(29, 55);
             this.lblMaSach.Name = "lblMaSach";
             this.lblMaSach.Size = new System.Drawing.Size(51, 13);
             this.lblMaSach.TabIndex = 9;
@@ -174,7 +175,7 @@
             // lblTenSach
             // 
             this.lblTenSach.AutoSize = true;
-            this.lblTenSach.Location = new System.Drawing.Point(19, 61);
+            this.lblTenSach.Location = new System.Drawing.Point(29, 95);
             this.lblTenSach.Name = "lblTenSach";
             this.lblTenSach.Size = new System.Drawing.Size(55, 13);
             this.lblTenSach.TabIndex = 10;
@@ -183,7 +184,7 @@
             // lblTacGia
             // 
             this.lblTacGia.AutoSize = true;
-            this.lblTacGia.Location = new System.Drawing.Point(19, 85);
+            this.lblTacGia.Location = new System.Drawing.Point(29, 119);
             this.lblTacGia.Name = "lblTacGia";
             this.lblTacGia.Size = new System.Drawing.Size(46, 13);
             this.lblTacGia.TabIndex = 11;
@@ -192,7 +193,7 @@
             // lblNXB
             // 
             this.lblNXB.AutoSize = true;
-            this.lblNXB.Location = new System.Drawing.Point(60, 120);
+            this.lblNXB.Location = new System.Drawing.Point(287, 72);
             this.lblNXB.Name = "lblNXB";
             this.lblNXB.Size = new System.Drawing.Size(32, 13);
             this.lblNXB.TabIndex = 12;
@@ -201,7 +202,7 @@
             // lblSoLuong
             // 
             this.lblSoLuong.AutoSize = true;
-            this.lblSoLuong.Location = new System.Drawing.Point(60, 146);
+            this.lblSoLuong.Location = new System.Drawing.Point(287, 98);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(56, 13);
             this.lblSoLuong.TabIndex = 13;
@@ -210,7 +211,7 @@
             // lblGiaTien
             // 
             this.lblGiaTien.AutoSize = true;
-            this.lblGiaTien.Location = new System.Drawing.Point(60, 170);
+            this.lblGiaTien.Location = new System.Drawing.Point(287, 122);
             this.lblGiaTien.Name = "lblGiaTien";
             this.lblGiaTien.Size = new System.Drawing.Size(26, 13);
             this.lblGiaTien.TabIndex = 14;
@@ -238,7 +239,7 @@
             // 
             // txtMaSach
             // 
-            this.txtMaSach.Location = new System.Drawing.Point(75, 18);
+            this.txtMaSach.Location = new System.Drawing.Point(85, 52);
             this.txtMaSach.Name = "txtMaSach";
             this.txtMaSach.Size = new System.Drawing.Size(100, 20);
             this.txtMaSach.TabIndex = 17;
@@ -247,7 +248,7 @@
             // 
             // txtTenSach
             // 
-            this.txtTenSach.Location = new System.Drawing.Point(75, 54);
+            this.txtTenSach.Location = new System.Drawing.Point(85, 88);
             this.txtTenSach.Name = "txtTenSach";
             this.txtTenSach.Size = new System.Drawing.Size(100, 20);
             this.txtTenSach.TabIndex = 18;
@@ -255,7 +256,7 @@
             // 
             // txtTacGia
             // 
-            this.txtTacGia.Location = new System.Drawing.Point(75, 85);
+            this.txtTacGia.Location = new System.Drawing.Point(85, 119);
             this.txtTacGia.Name = "txtTacGia";
             this.txtTacGia.Size = new System.Drawing.Size(100, 20);
             this.txtTacGia.TabIndex = 19;
@@ -263,7 +264,7 @@
             // 
             // txtNXB
             // 
-            this.txtNXB.Location = new System.Drawing.Point(101, 120);
+            this.txtNXB.Location = new System.Drawing.Point(328, 72);
             this.txtNXB.Name = "txtNXB";
             this.txtNXB.Size = new System.Drawing.Size(100, 20);
             this.txtNXB.TabIndex = 20;
@@ -271,7 +272,7 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(112, 146);
+            this.txtSoLuong.Location = new System.Drawing.Point(339, 98);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 21;
@@ -279,8 +280,7 @@
             // 
             // txtGiaTien
             // 
-            this.txtGiaTien.Enabled = false;
-            this.txtGiaTien.Location = new System.Drawing.Point(112, 172);
+            this.txtGiaTien.Location = new System.Drawing.Point(339, 124);
             this.txtGiaTien.Name = "txtGiaTien";
             this.txtGiaTien.Size = new System.Drawing.Size(100, 20);
             this.txtGiaTien.TabIndex = 22;
