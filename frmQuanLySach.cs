@@ -169,5 +169,5 @@ namespace quan_li_ban_sach
             txtGiaTien.Text = Convert.ToString(row.Cells["GiaTien"].Value);
         }
     }
-}
+}////
 
