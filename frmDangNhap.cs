@@ -95,5 +95,12 @@ namespace quan_li_ban_sach
         {
             txtPassword.UseSystemPasswordChar = true;
         }
+
+        private void btnClose_MouseLeave(object sender, EventArgs e)
+        {
+            btnClose.BackColor = SystemColors.Control;
+        }
+
+
     }
 }
