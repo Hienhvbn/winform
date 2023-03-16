@@ -41,7 +41,7 @@ namespace quan_li_ban_sach
         private void mnusach_Click(object sender, EventArgs e)
         {
             frmQuanLySach frmQuanLySach = new frmQuanLySach();
-            frmQuanLySach.MdiParent = this;
+            //frmQuanLySach.MdiParent = this;
             frmQuanLySach.Show();
         }
     }

@@ -47,7 +47,7 @@ namespace quan_li_ban_sach
                 
                 if (dta.Read() == true)
                 {
-                    MessageBox.Show("Đăng nhập thành công");
+                    //MessageBox.Show("Đăng nhập thành công");
                     this.Hide();
                     frmTrangChu f = new frmTrangChu();
                     f.Show();
