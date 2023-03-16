@@ -17,7 +17,7 @@ namespace quan_li_ban_sach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmtrang_chu());
+            Application.Run(new frmQuanLySach());
         }
     }
 }

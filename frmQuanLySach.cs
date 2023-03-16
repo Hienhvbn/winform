@@ -23,6 +23,18 @@ namespace quan_li_ban_sach
 
         private void frmQuanLySach_Load(object sender, EventArgs e)
         {
+            Class.Functions.Connect();
+            btnLuu.Enabled = false;
+            btnBoQua.Enabled = false;
+            txtMaSach.Enabled = false;
+            txtTenSach.Enabled = false;
+            txtTacGia.Enabled = false;
+            txtNXB.Enabled = false;
+            txtSoLuong.Enabled = false;
+            txtDonGiaNhap.Enabled = false;
+            txtDonGiaBan.Enabled = false;
+            txtAnh.Enabled = false;
+            txtGhiChu.Enabled = false;
             LoadDataGridView(); //Hiển thị bảng tblChatLieu
         }
         private void ResetValues()
@@ -117,9 +129,14 @@ namespace quan_li_ban_sach
             ResetValues();
             txtMaSach.Enabled = true;
             txtMaSach.Focus();
+            txtTenSach.Enabled = true;
+            txtTacGia.Enabled = true;
+            txtNXB.Enabled = true;
             txtSoLuong.Enabled = true;
             txtDonGiaNhap.Enabled = true;
             txtDonGiaBan.Enabled = true;
+            txtAnh.Enabled = true;
+            txtGhiChu.Enabled = true;
             /*if (txtMaSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã sách");
@@ -244,8 +261,8 @@ namespace quan_li_ban_sach
                 return;
             }
             sql = "UPDATE tblSach SET TenSach=N'" + txtTenSach.Text.Trim().ToString() +
-                "',TacGia=" + txtTacGia.Text.ToString() +
-                "',NXB=" + txtNXB.Text.ToString() +
+                "',TacGia=N'" + txtTacGia.Text.ToString() +
+                "',NXB=N'" + txtNXB.Text.ToString() +
                 "',SoLuong=" + txtSoLuong.Text +
                 ",Anh='" + txtAnh.Text + "',Ghichu=N'" + txtGhiChu.Text + "' WHERE MaSach=N'" + txtMaSach.Text + "'";
             Functions.RunSQL(sql);
@@ -319,14 +336,6 @@ namespace quan_li_ban_sach
             }
         }
 
-        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtGiaTien.Focus();
-            }
-        }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string sql;
@@ -375,7 +384,7 @@ namespace quan_li_ban_sach
             }
             sql = "INSERT INTO tblSach(MaSach,TenSach,TacGia,NXB,SoLuong,DonGiaNhap,DonGiaBan,Anh,Ghichu) VALUES(N'"
                 + txtMaSach.Text.Trim() + "',N'" + txtTenSach.Text.Trim() +
-                "'," + txtTacGia.Text.Trim() + "'," + txtNXB.Text.Trim() +
+                "',N'" + txtTacGia.Text.Trim() + "',N'" + txtNXB.Text.Trim() +
                 "'," + txtSoLuong.Text.Trim() + "," + txtDonGiaNhap.Text +
                 "," + txtDonGiaBan.Text + ",'" + txtAnh.Text + "',N'" + txtGhiChu.Text.Trim() + "')";
 
@@ -388,6 +397,14 @@ namespace quan_li_ban_sach
             btnBoQua.Enabled = false;
             btnLuu.Enabled = false;
             txtMaSach.Enabled = false;
+            txtTenSach.Enabled = false;
+            txtTacGia.Enabled = false;
+            txtNXB.Enabled = false;
+            txtSoLuong.Enabled = false;
+            txtDonGiaNhap.Enabled = false;
+            txtDonGiaBan.Enabled = false;
+            txtAnh.Enabled = false;
+            txtGhiChu.Enabled = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -459,6 +476,25 @@ namespace quan_li_ban_sach
             sql = "SELECT MaSach,TenSach,TacGia,NXB,SoLuong,DonGiaNhap,DonGiaBan,Anh,Ghichu FROM tblSach";
             tblS = Functions.GetDataToTable(sql);
             dgvSach.DataSource = tblS;
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            btnThem.Enabled = true;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnBoQua.Enabled = false;
+            btnLuu.Enabled = false;
+            txtMaSach.Enabled = false;
+            txtTenSach.Enabled = false;
+            txtTacGia.Enabled = false;
+            txtNXB.Enabled = false;
+            txtSoLuong.Enabled = false;
+            txtDonGiaNhap.Enabled = false;
+            txtDonGiaBan.Enabled = false;
+            txtAnh.Enabled = false;
+            txtGhiChu.Enabled = false;
         }
     }
 }/////
