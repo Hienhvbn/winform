@@ -14,7 +14,7 @@ namespace quan_li_ban_sach
 {
     public partial class frmDangNhap : Form
     {
-        
+        SqlConnection con = new SqlConnection("Server = DESKTOP-1COAG34; Database = Account; Integrated Security = True");
         public frmDangNhap()
         {
             InitializeComponent();
@@ -37,6 +37,9 @@ namespace quan_li_ban_sach
                 txtMatKhau.Focus();
                 return;
             }
+            string sql = "SELECT * FROM tblAccount WHERE TaiKhoan = '" + tk + "' and MatKhau = '" + mk + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader dta = cmd.ExecuteReader();
             if (dta.Read() == true)
             {
                 MessageBox.Show("Đăng nhập thành công");
@@ -59,10 +62,7 @@ namespace quan_li_ban_sach
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Server = DESKTOP-1COAG34; Database = Account; Integrated Security = True");
-            string sql = "SELECT * FROM tblAccount WHERE TaiKhoan = '" + tk + "' and MatKhau = '" + mk + "'";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            SqlDataReader dta = cmd.ExecuteReader();
+            
             try
             {
                 con.Open();
