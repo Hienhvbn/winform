@@ -30,6 +30,8 @@ namespace quan_li_ban_sach
             txtMaSach.Text = "";
             txtTenSach.Text = "";
             //cboMaChatLieu.Text = "";
+            txtTacGia.Text = "";
+            txtNXB.Text = "";
             txtSoLuong.Text = "0";
             txtDonGiaNhap.Text = "0";
             txtDonGiaBan.Text = "0";
@@ -43,25 +45,27 @@ namespace quan_li_ban_sach
         private void LoadDataGridView()
         {
             string sql;
-            sql = "SELECT * from tblHang";
+            sql = "SELECT * from tblSach";
             tblS = Functions.GetDataToTable(sql);
             dgvSach.DataSource = tblS;
             dgvSach.Columns[0].HeaderText = "Mã hàng";
             dgvSach.Columns[1].HeaderText = "Tên hàng";
-            dgvSach.Columns[2].HeaderText = "Chất liệu";
-            dgvSach.Columns[3].HeaderText = "Số lượng";
-            dgvSach.Columns[4].HeaderText = "Đơn giá nhập";
-            dgvSach.Columns[5].HeaderText = "Đơn giá bán";
-            dgvSach.Columns[6].HeaderText = "Ảnh";
-            dgvSach.Columns[7].HeaderText = "Ghi chú";
+            dgvSach.Columns[2].HeaderText = "Tác giả";
+            dgvSach.Columns[3].HeaderText = "NXB";
+            dgvSach.Columns[4].HeaderText = "Số lượng";
+            dgvSach.Columns[5].HeaderText = "Đơn giá nhập";
+            dgvSach.Columns[6].HeaderText = "Đơn giá bán";
+            dgvSach.Columns[7].HeaderText = "Ảnh";
+            dgvSach.Columns[8].HeaderText = "Ghi chú";
             dgvSach.Columns[0].Width = 80;
             dgvSach.Columns[1].Width = 140;
             dgvSach.Columns[2].Width = 80;
             dgvSach.Columns[3].Width = 80;
-            dgvSach.Columns[4].Width = 100;
+            dgvSach.Columns[4].Width = 80;
             dgvSach.Columns[5].Width = 100;
-            dgvSach.Columns[6].Width = 200;
-            dgvSach.Columns[7].Width = 300;
+            dgvSach.Columns[6].Width = 100;
+            dgvSach.Columns[7].Width = 200;
+            dgvSach.Columns[8].Width = 300;
             dgvSach.AllowUserToAddRows = false;
             dgvSach.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
@@ -82,6 +86,8 @@ namespace quan_li_ban_sach
             }
             txtMaSach.Text = dgvSach.CurrentRow.Cells["MaSach"].Value.ToString();
             txtTenSach.Text = dgvSach.CurrentRow.Cells["TenSach"].Value.ToString();
+            txtTenSach.Text = dgvSach.CurrentRow.Cells["TacGia"].Value.ToString();
+            txtTenSach.Text = dgvSach.CurrentRow.Cells["NXB"].Value.ToString();
             //MaChatLieu = dgvSach.CurrentRow.Cells["MaChatLieu"].Value.ToString();
             //sql = "SELECT TenChatLieu FROM tblChatLieu WHERE MaChatLieu=N'" + MaChatLieu + "'";
             //cboMaChatLieu.Text = Functions.GetFieldValues(sql);
@@ -90,7 +96,7 @@ namespace quan_li_ban_sach
             txtDonGiaBan.Text = dgvSach.CurrentRow.Cells["DonGiaBan"].Value.ToString();
             sql = "SELECT Anh FROM tblSach WHERE MaSach=N'" + txtMaSach.Text + "'";
             txtAnh.Text = Functions.GetFieldValues(sql);
-            //picAnh.Image = Image.FromFile(txtAnh.Text);
+            picAnh.Image = Image.FromFile(txtAnh.Text);
             sql = "SELECT GhiChu FROM tblSach WHERE MaSach = N'" + txtMaSach.Text + "'";
             txtGhiChu.Text = Functions.GetFieldValues(sql);
             btnSua.Enabled = true;
@@ -209,8 +215,20 @@ namespace quan_li_ban_sach
             }
             if (txtTenSach.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập tên hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải nhập tên sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtTenSach.Focus();
+                return;
+            }
+            if (txtTacGia.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên tác giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTacGia.Focus();
+                return;
+            }
+            if (txtNXB.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên NXB", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNXB.Focus();
                 return;
             }
             /*if (cboMaChatLieu.Text.Trim().Length == 0)
@@ -225,9 +243,11 @@ namespace quan_li_ban_sach
                 txtAnh.Focus();
                 return;
             }
-            sql = "UPDATE tblHang SET TenHang=N'" + txtTenSach.Text.Trim().ToString() +
+            sql = "UPDATE tblSach SET TenSach=N'" + txtTenSach.Text.Trim().ToString() +
+                "',TacGia=" + txtTacGia.Text.ToString() +
+                "',NXB=" + txtNXB.Text.ToString() +
                 "',SoLuong=" + txtSoLuong.Text +
-                ",Anh='" + txtAnh.Text + "',Ghichu=N'" + txtGhiChu.Text + "' WHERE MaHang=N'" + txtMaSach.Text + "'";
+                ",Anh='" + txtAnh.Text + "',Ghichu=N'" + txtGhiChu.Text + "' WHERE MaSach=N'" + txtMaSach.Text + "'";
             Functions.RunSQL(sql);
             LoadDataGridView();
             ResetValues();
@@ -259,29 +279,12 @@ namespace quan_li_ban_sach
             }*/
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = new DataGridViewRow();
-            row = dgvSach.Rows[e.RowIndex];
-            txtMaSach.Text = Convert.ToString(row.Cells["MaSach"].Value);
-            txtTenSach.Text = Convert.ToString(row.Cells["TenSach"].Value);
-            txtTacGia.Text = Convert.ToString(row.Cells["TacGia"].Value);
-            txtNXB.Text = Convert.ToString(row.Cells["NXB"].Value);
-            txtSoLuong.Text = Convert.ToString(row.Cells["SoLuong"].Value);
-            txtGiaTien.Text = Convert.ToString(row.Cells["GiaTien"].Value);
-        }
-
         private void btnDong_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
             }
-        }
-
-        private void txtMaSach_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtMaSach_KeyPress(object sender, KeyPressEventArgs e)
@@ -339,6 +342,18 @@ namespace quan_li_ban_sach
                 txtTenSach.Focus();
                 return;
             }
+            if (txtTacGia.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên tác giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTacGia.Focus();
+                return;
+            }
+            if (txtNXB.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên NXB", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNXB.Focus();
+                return;
+            }
             /*if (cboMaChatLieu.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập chất liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -358,14 +373,15 @@ namespace quan_li_ban_sach
                 txtMaSach.Focus();
                 return;
             }
-            sql = "INSERT INTO tblHang(MaHang,TenHang,MaChatLieu,SoLuong,DonGiaNhap, DonGiaBan,Anh,Ghichu) VALUES(N'"
+            sql = "INSERT INTO tblSach(MaSach,TenSach,TacGia,NXB,SoLuong,DonGiaNhap,DonGiaBan,Anh,Ghichu) VALUES(N'"
                 + txtMaSach.Text.Trim() + "',N'" + txtTenSach.Text.Trim() +
+                "'," + txtTacGia.Text.Trim() + "'," + txtNXB.Text.Trim() +
                 "'," + txtSoLuong.Text.Trim() + "," + txtDonGiaNhap.Text +
                 "," + txtDonGiaBan.Text + ",'" + txtAnh.Text + "',N'" + txtGhiChu.Text.Trim() + "')";
 
             Functions.RunSQL(sql);
             LoadDataGridView();
-            //ResetValues();
+            ResetValues();
             btnXoa.Enabled = true;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
@@ -389,7 +405,7 @@ namespace quan_li_ban_sach
             }
             if (MessageBox.Show("Bạn có muốn xoá bản ghi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                sql = "DELETE tblHang WHERE MaHang=N'" + txtMaSach.Text + "'";
+                sql = "DELETE tblSach WHERE MaSach=N'" + txtMaSach.Text + "'";
                 Functions.RunSqlDel(sql);
                 LoadDataGridView();
                 ResetValues();
@@ -412,16 +428,20 @@ namespace quan_li_ban_sach
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string sql;
-            if ((txtMaSach.Text == "") && (txtTenSach.Text == "")
+            if ((txtMaSach.Text == "") && (txtTenSach.Text == ""))
             {
                 MessageBox.Show("Bạn hãy nhập điều kiện tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            sql = "SELECT * from tblHang WHERE 1=1";
+            sql = "SELECT * from tblSach WHERE 1=1";
             if (txtMaSach.Text != "")
-                sql += " AND MaHang LIKE N'%" + txtMaSach.Text + "%'";
+                sql += " AND MaSach LIKE N'%" + txtMaSach.Text + "%'";
             if (txtTenSach.Text != "")
-                sql += " AND TenHang LIKE N'%" + txtTenSach.Text + "%'";
+                sql += " AND TenSach LIKE N'%" + txtTenSach.Text + "%'";
+            if (txtTacGia.Text != "")
+                sql += " AND TacGia LIKE N'%" + txtTacGia.Text + "%'";
+            if (txtNXB.Text != "")
+                sql += " AND NXB LIKE N'%" + txtNXB.Text + "%'";
             /*if (cboMaChatLieu.Text != "")
                 sql += " AND MaChatLieu LIKE N'%" + cboMaChatLieu.SelectedValue + "%'";
             */
