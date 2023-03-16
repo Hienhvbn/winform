@@ -1,6 +1,6 @@
 ﻿namespace quan_li_ban_sach
 {
-    partial class frmtrang_chu
+    partial class frmTrangChu
     {
         /// <summary>
         /// Required designer variable.

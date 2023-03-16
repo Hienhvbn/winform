@@ -12,9 +12,9 @@ using quan_li_ban_sach;
 
 namespace quan_li_ban_sach
 {
-    public partial class frmtrang_chu : Form
+    public partial class frmTrangChu : Form
     {
-        public frmtrang_chu()
+        public frmTrangChu()
         {
             InitializeComponent();
         }
@@ -34,7 +34,7 @@ namespace quan_li_ban_sach
 
         private void mnuhoadonban_Click(object sender, EventArgs e)
         {
-            frmhoadonban frmhoadonban = new frmhoadonban();
+            frmHoaDonBan frmhoadonban = new frmHoaDonBan();
             frmhoadonban.MdiParent = this;
             frmhoadonban.Show();
         }
