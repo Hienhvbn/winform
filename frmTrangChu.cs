@@ -34,7 +34,7 @@ namespace quan_li_ban_sach
 
         private void mnuhoadonban_Click(object sender, EventArgs e)
         {
-            frmHoaDonBan frmhoadonban = new frmHoaDonBan();
+            frmHoaDonBanHang frmhoadonban = new frmHoaDonBanHang();
             frmhoadonban.MdiParent = this;
             frmhoadonban.Show();
         }
