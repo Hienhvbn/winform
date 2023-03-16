@@ -13,7 +13,7 @@ namespace quan_li_ban_sach
 {
     public partial class frmQuanLySach : Form
     {
-        string chuoiketnoi = "Server = DESKTOP-1COAG34\\SQLEXPRESS; Database = quanlybansach; Integrated Security = True";
+        string chuoiketnoi = "Server = DESKTOP-1COAG34\\SQLEXPRESS; Database = qlbs ;Integrated Security = True";
         SqlConnection con = new SqlConnection();
         private void ketnoicsdl()
         {
@@ -21,7 +21,7 @@ namespace quan_li_ban_sach
             {
                 con = new SqlConnection(chuoiketnoi); // truyen vao chuoi ket noi
                 con.Open();// mo ket noi
-                MessageBox.Show("Kết nối thành công");
+                //MessageBox.Show("Kết nối thành công");
             }
             catch
             {
@@ -30,7 +30,7 @@ namespace quan_li_ban_sach
         }
         private void loaddulieulen()
         {
-            string sql = "SELECT * FROM Books";
+            string sql = "SELECT * FROM tblSach";
             SqlDataAdapter da = new SqlDataAdapter(sql, con);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -85,7 +85,7 @@ namespace quan_li_ban_sach
                 txtGiaTien.Focus();
                 return;
             }
-            string sqlthem = "INSERT INTO Books VALUES ( '" + txtMaSach.Text.Trim() + "','" + txtTenSach.Text.Trim() + "','" + txtTacGia.Text.Trim() + "','" + txtNXB.Text.Trim() + "','" + txtSoLuong.Text.Trim() + "','" + txtGiaTien.Text.Trim() + "')";
+            string sqlthem = "INSERT INTO tblSach VALUES ( '" + txtMaSach.Text.Trim() + "','" + txtTenSach.Text.Trim() + "','" + txtTacGia.Text.Trim() + "','" + txtNXB.Text.Trim() + "','" + txtSoLuong.Text.Trim() + "','" + txtGiaTien.Text.Trim() + "')";
             try
             {
                 SqlCommand command = new SqlCommand(sqlthem, con);

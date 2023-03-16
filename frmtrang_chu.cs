@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using qlbansach;
+using quan_li_ban_sach;
 
 namespace quan_li_ban_sach
 {
@@ -20,13 +21,14 @@ namespace quan_li_ban_sach
 
         private void frmtrang_chu_Load(object sender, EventArgs e)
         {
-            //Class.functions.Connect(); //Mở kết nối
+            Class.Functions.Connect();
+            //Mở kết nối
 
         }
 
         private void mnuthoat_Click(object sender, EventArgs e)
         {
-            //Class.functions.Disconnect(); //Đóng kết nối
+            Class.Functions.Disconnect(); //Đóng kết nối
             Application.Exit(); //Thoát
         }
 
