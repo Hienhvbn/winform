@@ -21,20 +21,41 @@ namespace quan_li_ban_sach
         }
 
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            string tk = txtTaiKhoan.Text;
-            string mk = txtMatKhau.Text;
-            if (txtTaiKhoan.Text == "")
+            Application.Exit();
+        }
+
+        private void txtAccount_Click(object sender, EventArgs e)
+        {
+            txtAccount.BackColor = Color.White;
+            panel3.BackColor = Color.White;
+            panel4.BackColor = SystemColors.Control;
+            txtPassword.BackColor = SystemColors.Control;
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            txtPassword.BackColor = Color.White;
+            panel4.BackColor = Color.White;
+            panel3.BackColor = SystemColors.Control;
+            txtAccount.BackColor = SystemColors.Control;
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            string tk = txtAccount.Text;
+            string mk = txtPassword.Text;
+            if (txtAccount.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập tài khoản");
-                txtTaiKhoan.Focus();
+                txtAccount.Focus();
                 return;
             }
-            if (txtMatKhau.Text == "")
+            if (txtPassword.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu");
-                txtMatKhau.Focus();
+                txtPassword.Focus();
                 return;
             }
             SqlConnection con = new SqlConnection("Server = DESKTOP-1COAG34; Database = Account; Integrated Security = True");
@@ -44,7 +65,7 @@ namespace quan_li_ban_sach
                 string sql = "SELECT * FROM tblAccount WHERE TaiKhoan = '" + tk + "' and MatKhau = '" + mk + "'";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataReader dta = cmd.ExecuteReader();
-                
+
                 if (dta.Read() == true)
                 {
                     //MessageBox.Show("Đăng nhập thành công");
@@ -55,7 +76,7 @@ namespace quan_li_ban_sach
                 else
                 {
                     MessageBox.Show("Đăng nhập thất bại");
-                    
+
                 }
 
             }
@@ -63,14 +84,6 @@ namespace quan_li_ban_sach
             {
                 MessageBox.Show("Lỗi kết nối");
             }
-            
-
         }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
     }
 }
