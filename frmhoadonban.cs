@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using qlbansach;
+using quan_li_ban_sach;
 
 namespace quan_li_ban_sach
 {

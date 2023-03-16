@@ -13,9 +13,9 @@ namespace quan_li_ban_sach
 {
     public partial class frmQuanLySach : Form
     {
-        string chuoiketnoi = "Server = DESKTOP-1COAG34\\SQLEXPRESS; Database = qlbs ;Integrated Security = True";
-        SqlConnection con = new SqlConnection();
-        private void ketnoicsdl()
+        //string chuoiketnoi = "Server = DESKTOP-1COAG34\\SQLEXPRESS; Database = qlbs ;Integrated Security = True";
+        //SqlConnection con = new SqlConnection();
+        /*private void ketnoicsdl()
         {
             try
             {
@@ -27,15 +27,15 @@ namespace quan_li_ban_sach
             {
                 MessageBox.Show("Kết nối không thành công");
             }
-        }
-        private void loaddulieulen()
+        }*/
+        /*private void loaddulieulen()
         {
             string sql = "SELECT * FROM tblSach";
             SqlDataAdapter da = new SqlDataAdapter(sql, con);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
-        }
+        }*/
         public frmQuanLySach()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace quan_li_ban_sach
         private void frmQuanLySach_Load(object sender, EventArgs e)
         {
             Class.Functions.Connect();
-            loaddulieulen();
+            //loaddulieulen();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace quan_li_ban_sach
             {
                 SqlCommand command = new SqlCommand(sqlthem, con);
                 command.ExecuteNonQuery();
-                loaddulieulen();
+                //loaddulieulen();
                 MessageBox.Show("Thêm thành công");
             }
             catch
@@ -116,7 +116,7 @@ namespace quan_li_ban_sach
                     {
                         SqlCommand command = new SqlCommand(sqlxoa, con);
                         command.ExecuteNonQuery();
-                        loaddulieulen();
+                        //loaddulieulen();
                         MessageBox.Show("Xóa thành công");
                     }
                     catch
@@ -145,7 +145,7 @@ namespace quan_li_ban_sach
                     {
                         SqlCommand command = new SqlCommand(sqlsua, con);
                         command.ExecuteNonQuery();
-                        loaddulieulen();
+                        //loaddulieulen();
                         MessageBox.Show("Sửa thành công");
                     }
                     catch
