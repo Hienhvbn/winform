@@ -12,10 +12,10 @@ using quan_li_ban_sach;
 
 namespace quan_li_ban_sach
 {
-    public partial class frmHoaDonBan : Form
+    public partial class frmHoaDonBanHang : Form
     {
         DataTable tblCTHDB; //Bảng chi tiết hoá đơn bán
-        public frmHoaDonBan()
+        public frmHoaDonBanHang()
         {
             InitializeComponent();
         }

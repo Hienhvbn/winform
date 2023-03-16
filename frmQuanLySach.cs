@@ -25,7 +25,7 @@ namespace quan_li_ban_sach
         {
             Class.Functions.Connect();
             btnLuu.Enabled = false;
-            btnBoQua.Enabled = false;
+            btnHuy.Enabled = false;
             txtMaSach.Enabled = false;
             txtTenSach.Enabled = false;
             txtTacGia.Enabled = false;
@@ -36,20 +36,20 @@ namespace quan_li_ban_sach
             txtAnh.Enabled = false;
             txtGhiChu.Enabled = false;
             LoadDataGridView(); //Hiển thị bảng tblChatLieu
+            btnLuu.Hide();
         }
         private void ResetValues()
         {
             txtMaSach.Text = "";
             txtTenSach.Text = "";
-            //cboMaChatLieu.Text = "";
             txtTacGia.Text = "";
             txtNXB.Text = "";
             txtSoLuong.Text = "0";
             txtDonGiaNhap.Text = "0";
             txtDonGiaBan.Text = "0";
-            txtSoLuong.Enabled = true;
-            txtDonGiaNhap.Enabled = false;
-            txtDonGiaBan.Enabled = false;
+            //txtSoLuong.Enabled = true;
+            //txtDonGiaNhap.Enabled = false;
+            //txtDonGiaBan.Enabled = false;
             txtAnh.Text = "";
             picAnh.Image = null;
             txtGhiChu.Text = "";
@@ -113,7 +113,7 @@ namespace quan_li_ban_sach
             txtGhiChu.Text = Functions.GetFieldValues(sql);
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
-            btnBoQua.Enabled = true;
+            btnHuy.Enabled = true;
         }
 
 
@@ -121,12 +121,13 @@ namespace quan_li_ban_sach
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            btnThem.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-            btnBoQua.Enabled = true;
+            btnTimKiem.Enabled = false;
+            btnHuy.Enabled = true;
             btnLuu.Enabled = true;
-            btnThem.Enabled = false;
-            ResetValues();
+ 
             txtMaSach.Enabled = true;
             txtMaSach.Focus();
             txtTenSach.Enabled = true;
@@ -137,6 +138,7 @@ namespace quan_li_ban_sach
             txtDonGiaBan.Enabled = true;
             txtAnh.Enabled = true;
             txtGhiChu.Enabled = true;
+            btnThem.Hide();
             /*if (txtMaSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã sách");
@@ -268,7 +270,7 @@ namespace quan_li_ban_sach
             Functions.RunSQL(sql);
             LoadDataGridView();
             ResetValues();
-            btnBoQua.Enabled = false;
+            btnHuy.Enabled = false;
             /*if (txtMaSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã sách muốn sửa");
@@ -336,8 +338,40 @@ namespace quan_li_ban_sach
             }
         }
 
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtDonGiaNhap.Focus();
+            }
+        }
+
+        private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtDonGiaBan.Focus();
+            }
+        }
+        private void txtDonGiaBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnOpen.Focus();
+            }
+        }
+
+        private void btnOpen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtGhiChu.Focus();
+            }
+        }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            
             string sql;
             if (txtMaSach.Text.Trim().Length == 0)
             {
@@ -363,12 +397,6 @@ namespace quan_li_ban_sach
                 txtNXB.Focus();
                 return;
             }
-            /*if (cboMaChatLieu.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập chất liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboMaChatLieu.Focus();
-                return;
-            }*/
             if (txtAnh.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải chọn ảnh minh hoạ cho hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -391,10 +419,11 @@ namespace quan_li_ban_sach
             Functions.RunSQL(sql);
             LoadDataGridView();
             ResetValues();
+            btnThem.Show();
             btnXoa.Enabled = true;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
-            btnBoQua.Enabled = false;
+            btnHuy.Enabled = false;
             btnLuu.Enabled = false;
             txtMaSach.Enabled = false;
             txtTenSach.Enabled = false;
@@ -407,8 +436,29 @@ namespace quan_li_ban_sach
             txtGhiChu.Enabled = false;
         }
 
+
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
+            btnTimKiem.Enabled = false;
+            btnHuy.Enabled = true;
+            btnLuu.Enabled = false;
+            if (txtMaSach.Enabled == false)
+            {
+                txtMaSach.Enabled = true;
+                txtMaSach.Focus();
+                txtTenSach.Enabled = false;
+                txtTacGia.Enabled = false;
+                txtNXB.Enabled = false;
+                txtSoLuong.Enabled = false;
+                txtDonGiaNhap.Enabled = false;
+                txtDonGiaBan.Enabled = false;
+                txtAnh.Enabled = false;
+                txtGhiChu.Enabled = false;
+                return;
+            }
+            
             string sql;
             if (tblS.Rows.Count == 0)
             {
@@ -444,6 +494,25 @@ namespace quan_li_ban_sach
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            if(txtMaSach.Enabled == false)
+            {
+                btnXoa.Enabled = false;
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnHuy.Enabled = true;
+                btnLuu.Enabled = false;
+                txtMaSach.Enabled = true;
+                txtTenSach.Enabled = true;
+                txtTacGia.Enabled = true;
+                txtNXB.Enabled = true;
+                txtSoLuong.Enabled = false;
+                txtDonGiaNhap.Enabled = false;
+                txtDonGiaBan.Enabled = false;
+                txtAnh.Enabled = false;
+                txtGhiChu.Enabled = false;
+                return;
+            }
+            
             string sql;
             if ((txtMaSach.Text == "") && (txtTenSach.Text == ""))
             {
@@ -467,7 +536,7 @@ namespace quan_li_ban_sach
                 MessageBox.Show("Không có bản ghi thoả mãn điều kiện tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else MessageBox.Show("Có " + tblS.Rows.Count + "  bản ghi thoả mãn điều kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             dgvSach.DataSource = tblS;
-            ResetValues();
+            //ResetValues();
         }
 
         private void btnHienthiDS_Click(object sender, EventArgs e)
@@ -478,13 +547,16 @@ namespace quan_li_ban_sach
             dgvSach.DataSource = tblS;
         }
 
-        private void btnBoQua_Click(object sender, EventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
         {
+            btnThem.Show();
+            btnLuu.Hide();
             ResetValues();
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
-            btnBoQua.Enabled = false;
+            btnTimKiem.Enabled = true;
+            btnHuy.Enabled = false;
             btnLuu.Enabled = false;
             txtMaSach.Enabled = false;
             txtTenSach.Enabled = false;
@@ -495,7 +567,55 @@ namespace quan_li_ban_sach
             txtDonGiaBan.Enabled = false;
             txtAnh.Enabled = false;
             txtGhiChu.Enabled = false;
+            LoadDataGridView();
         }
+
+        private void lblNXB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTacGia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTenSach_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMaSach_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSoLuong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }/////
 

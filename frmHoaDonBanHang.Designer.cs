@@ -1,6 +1,6 @@
 ﻿namespace quan_li_ban_sach
 {
-    partial class frmHoaDonBan
+    partial class frmHoaDonBanHang
     {
         /// <summary>
         /// Required designer variable.
