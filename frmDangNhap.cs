@@ -85,5 +85,15 @@ namespace quan_li_ban_sach
                 MessageBox.Show("Lỗi kết nối");
             }
         }
+
+        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = false;
+        }
+
+        private void pictureBox3_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+        }
     }
 }

@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADpvSURBVHhe7d0H
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADpvSURBVHhe7d0H
         1CxVvaZxco4SJUlGsiQJgiSRpIgKCihBFLhegldMmIgiIHIVFRQRQVEMSFCyoiJJQSQoGQmC5ChRQJx5
         3xnPzPHcP5xdtXdVV3U9z1q/NWvNunb1V/Sp3l1h7ymIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI
         iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI
@@ -377,7 +377,7 @@
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHSCSURBVHhe7Z0J
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHSCSURBVHhe7Z0J
         eFxl3bcfFUFAcUFlERFQQcTXBVwAcQFxAzdUXNAXl1f43FFEqpCU6ZI0+zpZZrJM9kxOtqZJ06RNmqRJ
         16RFEGRHWSybbLIU2ib5/ufMc5Jz5jxnkrQzZ/3d13VfKaXAM2nD704ycw4DAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -881,7 +881,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAH3uSURBVHhe7d0L
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAH3uSURBVHhe7d0L
         lF3nQZ99xyY3ciOsBEOiSOccqTagQgBTLi1t0xLKLVxClwstBcot6devkDRcUnrhc/kampYS6pbwIduJ
         HcfOZZzY1sWSRpItX2QTEjfJCjW0SaCEYCgxvkRz9hnZiXW+d49eWaM5z8zsx5Y9Z0b//1rPkhM7IWj2
         fn/7aGbOnJNl2fpe7/D4Wf0jxy7s3T789t5tzWt7t8//cv+20aX920fX9G+f31d+/WDpD8u/1/ZAbVga
