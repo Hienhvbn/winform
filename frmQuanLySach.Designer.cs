@@ -84,6 +84,7 @@
             // 
             // btnDong
             // 
+            this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDong.Location = new System.Drawing.Point(707, 4);
             this.btnDong.Margin = new System.Windows.Forms.Padding(4);
             this.btnDong.Name = "btnDong";
@@ -399,6 +400,7 @@
             this.picAnh.Margin = new System.Windows.Forms.Padding(4);
             this.picAnh.Name = "picAnh";
             this.picAnh.Size = new System.Drawing.Size(121, 158);
+            this.picAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAnh.TabIndex = 31;
             this.picAnh.TabStop = false;
             // 
