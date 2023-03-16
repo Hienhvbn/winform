@@ -139,6 +139,7 @@ namespace quan_li_ban_sach
             txtAnh.Enabled = true;
             txtGhiChu.Enabled = true;
             btnThem.Hide();
+            btnLuu.Show();
             /*if (txtMaSach.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã sách");
@@ -419,10 +420,12 @@ namespace quan_li_ban_sach
             Functions.RunSQL(sql);
             LoadDataGridView();
             ResetValues();
+            btnLuu.Hide();
             btnThem.Show();
             btnXoa.Enabled = true;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
+            btnTimKiem.Enabled = true;
             btnHuy.Enabled = false;
             btnLuu.Enabled = false;
             txtMaSach.Enabled = false;
