@@ -7,9 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace qlbansach.Class
+namespace quan_li_ban_sach.Class
 {
-    class Functions
+    public class Functions
     {
         public static SqlConnection Con;  //Khai báo đối tượng kết nối        
 

@@ -43,7 +43,7 @@ namespace quan_li_ban_sach
 
         private void frmQuanLySach_Load(object sender, EventArgs e)
         {
-            ketnoicsdl();
+            Class.Functions.Connect();
             loaddulieulen();
         }
 
