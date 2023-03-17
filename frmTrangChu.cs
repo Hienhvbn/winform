@@ -44,5 +44,28 @@ namespace quan_li_ban_sach
             //frmQuanLySach.MdiParent = this;
             frmQuanLySach.Show();
         }
+
+        private void btnSach_Click(object sender, EventArgs e)
+        {
+            
+            frmQuanLySach frmQuanLySach = new frmQuanLySach();
+            frmQuanLySach.MdiParent = this;
+            frmQuanLySach.Show();
+            frmQuanLySach.Dock = DockStyle.Fill;
+            panel2.Controls.Add(frmQuanLySach);
+            btnSach.Enabled = false;
+        }
+
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            
+            btnSach.Enabled = true;
+            frmHoaDonBanHang frmHoaDonBanHang = new frmHoaDonBanHang();
+            frmHoaDonBanHang.MdiParent = this;
+            frmHoaDonBanHang.Show();
+            frmHoaDonBanHang.Dock = DockStyle.Fill;
+            panel2.Controls.Add(frmHoaDonBanHang);
+            btnHoaDon.Enabled = false;
+        }
     }
 }

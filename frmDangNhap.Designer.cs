@@ -86,9 +86,9 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(182, 489);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 17);
+            this.label12.Size = new System.Drawing.Size(67, 17);
             this.label12.TabIndex = 16;
-            this.label12.Text = "Group 1?";
+            this.label12.Text = "Group 10";
             // 
             // label11
             // 
