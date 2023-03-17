@@ -47,7 +47,7 @@ namespace quan_li_ban_sach
         {
             OpenChildForm(new frmQuanLySach());
             lblTitle.Text = btnSach.Text;
-
+            //
             btnSach.BackColor = Color.FromArgb(0, 102, 51);
             btnHoaDon.BackColor = Color.FromArgb(51, 51, 76);
             btnNhanVien.BackColor = Color.FromArgb(51, 51, 76);
