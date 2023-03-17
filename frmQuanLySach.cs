@@ -180,7 +180,7 @@ namespace quan_li_ban_sach
             btnHuy.Enabled = false;
             
         }
-        private void dataGridView1_CellContentClick123(object sender, DataGridViewCellEventArgs e)
+        /*private void dataGridView1_CellContentClick123(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = new DataGridViewRow();
             row = dgvSach.Rows[e.RowIndex];
@@ -191,7 +191,7 @@ namespace quan_li_ban_sach
             txtSoLuong.Text = Convert.ToString(row.Cells["SoLuong"].Value);
             txtGiaTien.Text = Convert.ToString(row.Cells["GiaTien"].Value);
         }
-
+        */
         private void btnDong_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)

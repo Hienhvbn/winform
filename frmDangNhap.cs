@@ -69,7 +69,7 @@ namespace quan_li_ban_sach
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kết nối");
-                //
+                ////
             }
         }
 
