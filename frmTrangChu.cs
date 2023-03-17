@@ -58,7 +58,7 @@ namespace quan_li_ban_sach
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            
+            //
             btnSach.Enabled = true;
             frmHoaDonBanHang frmHoaDonBanHang = new frmHoaDonBanHang();
             frmHoaDonBanHang.MdiParent = this;
