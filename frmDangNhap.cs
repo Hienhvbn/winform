@@ -26,21 +26,7 @@ namespace quan_li_ban_sach
             Application.Exit();
         }
 
-        private void txtAccount_Click(object sender, EventArgs e)
-        {
-            txtAccount.BackColor = Color.White;
-            panel3.BackColor = Color.White;
-            panel4.BackColor = SystemColors.Control;
-            txtPassword.BackColor = SystemColors.Control;
-        }
 
-        private void txtPassword_Click(object sender, EventArgs e)
-        {
-            txtPassword.BackColor = Color.White;
-            panel4.BackColor = Color.White;
-            panel3.BackColor = SystemColors.Control;
-            txtAccount.BackColor = SystemColors.Control;
-        }
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
@@ -100,6 +86,34 @@ namespace quan_li_ban_sach
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
             btnClose.BackColor = SystemColors.Control;
+        }
+
+        private void txtAccount_Click(object sender, EventArgs e)
+        {
+            txtAccount.BackColor = Color.White;
+            panel3.BackColor = Color.White;
+            panel4.BackColor = SystemColors.Control;
+            txtPassword.BackColor = SystemColors.Control;
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            txtPassword.BackColor = Color.White;
+            panel4.BackColor = Color.White;
+            panel3.BackColor = SystemColors.Control;
+            txtAccount.BackColor = SystemColors.Control;
+        }
+
+        private void txtAccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                txtPassword.BackColor = Color.White;
+                panel4.BackColor = Color.White;
+                panel3.BackColor = SystemColors.Control;
+                txtAccount.BackColor = SystemColors.Control;
+                txtPassword.Focus();
+            }
         }
 
 

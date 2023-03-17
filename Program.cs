@@ -18,8 +18,8 @@ namespace quan_li_ban_sach
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmQuanLySach());
-            Application.Run(new frmDangNhap());
-            //Application.Run(new frmTrangChu());
+            //Application.Run(new frmDangNhap());
+            Application.Run(new frmTrangChu());
 
         }
     }

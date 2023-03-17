@@ -134,7 +134,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(16, 8);
+            this.btnLuu.Location = new System.Drawing.Point(436, 7);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(76, 31);
@@ -189,6 +189,8 @@
             this.dgvSach.Name = "dgvSach";
             this.dgvSach.Size = new System.Drawing.Size(800, 218);
             this.dgvSach.TabIndex = 8;
+            this.dgvSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellContentClick);
+            this.dgvSach.Click += new System.EventHandler(this.dgvSach_Click);
             // 
             // lblMaSach
             // 
