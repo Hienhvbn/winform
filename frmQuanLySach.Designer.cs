@@ -123,7 +123,7 @@
             // btnHuy
             // 
             this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnHuy.Location = new System.Drawing.Point(647, 8);
+            this.btnHuy.Location = new System.Drawing.Point(648, 8);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(76, 31);
@@ -141,6 +141,7 @@
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -188,7 +189,6 @@
             this.dgvSach.Name = "dgvSach";
             this.dgvSach.Size = new System.Drawing.Size(800, 218);
             this.dgvSach.TabIndex = 8;
-            this.dgvSach.Click += new System.EventHandler(this.dgvSach_Click);
             // 
             // lblMaSach
             // 
@@ -200,6 +200,7 @@
             this.lblMaSach.Size = new System.Drawing.Size(55, 14);
             this.lblMaSach.TabIndex = 9;
             this.lblMaSach.Text = "Mã sách:";
+            this.lblMaSach.Click += new System.EventHandler(this.lblMaSach_Click);
             // 
             // lblTenSach
             // 
@@ -211,6 +212,7 @@
             this.lblTenSach.Size = new System.Drawing.Size(57, 14);
             this.lblTenSach.TabIndex = 10;
             this.lblTenSach.Text = "Tên sách:";
+            this.lblTenSach.Click += new System.EventHandler(this.lblTenSach_Click);
             // 
             // lblTacGia
             // 
@@ -222,6 +224,7 @@
             this.lblTacGia.Size = new System.Drawing.Size(47, 14);
             this.lblTacGia.TabIndex = 11;
             this.lblTacGia.Text = "Tác giả:";
+            this.lblTacGia.Click += new System.EventHandler(this.lblTacGia_Click);
             // 
             // lblNXB
             // 
@@ -233,6 +236,7 @@
             this.lblNXB.Size = new System.Drawing.Size(31, 14);
             this.lblNXB.TabIndex = 12;
             this.lblNXB.Text = "NXB:";
+            this.lblNXB.Click += new System.EventHandler(this.lblNXB_Click);
             // 
             // lblSoLuong
             // 
@@ -244,6 +248,7 @@
             this.lblSoLuong.Size = new System.Drawing.Size(58, 14);
             this.lblSoLuong.TabIndex = 13;
             this.lblSoLuong.Text = "Số Lượng:";
+            this.lblSoLuong.Click += new System.EventHandler(this.lblSoLuong_Click);
             // 
             // label7
             // 
@@ -254,6 +259,7 @@
             this.label7.Size = new System.Drawing.Size(92, 14);
             this.label7.TabIndex = 15;
             this.label7.Text = "Danh sách sách";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtMaSach
             // 
@@ -310,6 +316,7 @@
             this.label9.Size = new System.Drawing.Size(31, 14);
             this.label9.TabIndex = 23;
             this.label9.Text = "Ảnh:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -321,6 +328,7 @@
             this.label10.Size = new System.Drawing.Size(51, 14);
             this.label10.TabIndex = 24;
             this.label10.Text = "Ghi chú:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtAnh
             // 
@@ -347,6 +355,7 @@
             this.txtDonGiaNhap.Name = "txtDonGiaNhap";
             this.txtDonGiaNhap.Size = new System.Drawing.Size(100, 22);
             this.txtDonGiaNhap.TabIndex = 27;
+            this.txtDonGiaNhap.TextChanged += new System.EventHandler(this.txtDonGiaNhap_TextChanged);
             this.txtDonGiaNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaNhap_KeyPress);
             // 
             // txtDonGiaBan
@@ -368,6 +377,7 @@
             this.label1.Size = new System.Drawing.Size(83, 14);
             this.label1.TabIndex = 29;
             this.label1.Text = "Đơn giá nhập:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -379,6 +389,7 @@
             this.label2.Size = new System.Drawing.Size(76, 14);
             this.label2.TabIndex = 30;
             this.label2.Text = "Đơn giá bán:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // picAnh
             // 
@@ -389,6 +400,7 @@
             this.picAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAnh.TabIndex = 31;
             this.picAnh.TabStop = false;
+            this.picAnh.Click += new System.EventHandler(this.picAnh_Click);
             // 
             // btnOpen
             // 
@@ -419,6 +431,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(152, 236);
             this.panel3.TabIndex = 34;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // frmQuanLySach
             // 

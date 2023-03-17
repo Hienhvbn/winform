@@ -40,7 +40,7 @@
             this.txtTenKhach = new System.Windows.Forms.TextBox();
             this.txtTenNhanVien = new System.Windows.Forms.TextBox();
             this.cboMaNhanVien = new System.Windows.Forms.ComboBox();
-            this.txtngayban = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgayBan = new System.Windows.Forms.DateTimePicker();
             this.txtMaHDBan = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -68,11 +68,11 @@
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.txtGiamGia = new System.Windows.Forms.TextBox();
             this.txtdongia = new System.Windows.Forms.TextBox();
-            this.cboMaHang = new System.Windows.Forms.ComboBox();
+            this.cboMaSach = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtsoluong = new System.Windows.Forms.TextBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txttensach = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -156,7 +156,7 @@
             this.groupBox1.Controls.Add(this.txtTenKhach);
             this.groupBox1.Controls.Add(this.txtTenNhanVien);
             this.groupBox1.Controls.Add(this.cboMaNhanVien);
-            this.groupBox1.Controls.Add(this.txtngayban);
+            this.groupBox1.Controls.Add(this.dtpNgayBan);
             this.groupBox1.Controls.Add(this.txtMaHDBan);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
@@ -227,13 +227,13 @@
             this.cboMaNhanVien.Size = new System.Drawing.Size(169, 21);
             this.cboMaNhanVien.TabIndex = 10;
             // 
-            // txtngayban
+            // dtpNgayBan
             // 
-            this.txtngayban.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtngayban.Location = new System.Drawing.Point(107, 48);
-            this.txtngayban.Name = "txtngayban";
-            this.txtngayban.Size = new System.Drawing.Size(169, 20);
-            this.txtngayban.TabIndex = 9;
+            this.dtpNgayBan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayBan.Location = new System.Drawing.Point(107, 48);
+            this.dtpNgayBan.Name = "dtpNgayBan";
+            this.dtpNgayBan.Size = new System.Drawing.Size(169, 20);
+            this.dtpNgayBan.TabIndex = 9;
             // 
             // txtMaHDBan
             // 
@@ -395,7 +395,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button5);
+            this.panel3.Controls.Add(this.btnDong);
             this.panel3.Controls.Add(this.btnXoa);
             this.panel3.Controls.Add(this.btnLuu);
             this.panel3.Controls.Add(this.btnThem);
@@ -405,15 +405,15 @@
             this.panel3.Size = new System.Drawing.Size(795, 34);
             this.panel3.TabIndex = 5;
             // 
-            // button5
+            // btnDong
             // 
-            this.button5.Location = new System.Drawing.Point(482, 6);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Đóng";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button1_Click);
+            this.btnDong.Location = new System.Drawing.Point(482, 6);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(95, 23);
+            this.btnDong.TabIndex = 0;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnXoa
             // 
@@ -433,7 +433,7 @@
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu hoá đơn";
             this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.button1_Click);
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThem
             // 
@@ -443,7 +443,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm hoá đơn";
             this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.button1_Click);
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel2
             // 
@@ -451,11 +451,11 @@
             this.panel2.Controls.Add(this.txtThanhTien);
             this.panel2.Controls.Add(this.txtGiamGia);
             this.panel2.Controls.Add(this.txtdongia);
-            this.panel2.Controls.Add(this.cboMaHang);
+            this.panel2.Controls.Add(this.cboMaSach);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.txtsoluong);
+            this.panel2.Controls.Add(this.txtSoLuong);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.txttensach);
             this.panel2.Controls.Add(this.label15);
@@ -489,6 +489,7 @@
             this.txtGiamGia.Name = "txtGiamGia";
             this.txtGiamGia.Size = new System.Drawing.Size(141, 20);
             this.txtGiamGia.TabIndex = 3;
+            this.txtGiamGia.TextChanged += new System.EventHandler(this.txtGiamGia_TextChanged);
             // 
             // txtdongia
             // 
@@ -498,13 +499,14 @@
             this.txtdongia.Size = new System.Drawing.Size(141, 20);
             this.txtdongia.TabIndex = 3;
             // 
-            // cboMaHang
+            // cboMaSach
             // 
-            this.cboMaHang.FormattingEnabled = true;
-            this.cboMaHang.Location = new System.Drawing.Point(63, 3);
-            this.cboMaHang.Name = "cboMaHang";
-            this.cboMaHang.Size = new System.Drawing.Size(147, 21);
-            this.cboMaHang.TabIndex = 1;
+            this.cboMaSach.FormattingEnabled = true;
+            this.cboMaSach.Location = new System.Drawing.Point(63, 3);
+            this.cboMaSach.Name = "cboMaSach";
+            this.cboMaSach.Size = new System.Drawing.Size(147, 21);
+            this.cboMaSach.TabIndex = 1;
+            this.cboMaSach.SelectedIndexChanged += new System.EventHandler(this.cboMaHang_SelectedIndexChanged);
             // 
             // label17
             // 
@@ -535,12 +537,13 @@
             this.label16.Text = "Đơn giá";
             this.label16.Click += new System.EventHandler(this.label12_Click);
             // 
-            // txtsoluong
+            // txtSoLuong
             // 
-            this.txtsoluong.Location = new System.Drawing.Point(63, 35);
-            this.txtsoluong.Name = "txtsoluong";
-            this.txtsoluong.Size = new System.Drawing.Size(147, 20);
-            this.txtsoluong.TabIndex = 2;
+            this.txtSoLuong.Location = new System.Drawing.Point(63, 35);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Size = new System.Drawing.Size(147, 20);
+            this.txtSoLuong.TabIndex = 2;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
             // 
             // label14
             // 
@@ -570,16 +573,17 @@
             this.label15.Text = "Tên sách";
             this.label15.Click += new System.EventHandler(this.label12_Click);
             // 
-            // frmhoadonban
+            // frmHoaDonBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 509);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
-            this.Name = "frmhoadonban";
+            this.Name = "frmHoaDonBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoá đơn bán hàng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHoaDonBanHang_FormClosing);
             this.Load += new System.EventHandler(this.frmhoadonban_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -624,11 +628,11 @@
         private System.Windows.Forms.TextBox txtTenKhach;
         private System.Windows.Forms.TextBox txtTenNhanVien;
         private System.Windows.Forms.ComboBox cboMaNhanVien;
-        private System.Windows.Forms.DateTimePicker txtngayban;
+        private System.Windows.Forms.DateTimePicker dtpNgayBan;
         private System.Windows.Forms.TextBox txtMaHDBan;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtsoluong;
-        private System.Windows.Forms.ComboBox cboMaHang;
+        private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.ComboBox cboMaSach;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtGiamGia;
@@ -645,7 +649,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.TextBox txtTongTien;

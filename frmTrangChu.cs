@@ -107,7 +107,7 @@ namespace quan_li_ban_sach
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Form4());
+            OpenChildForm(new frmNhanVien());
             lblTitle.Text = btnKhachHang.Text;
 
             btnKhachHang.BackColor = Color.FromArgb(153, 76, 0);

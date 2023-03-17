@@ -10,16 +10,20 @@ using System.Windows.Forms;
 
 namespace quan_li_ban_sach
 {
-    public partial class Form4 : Form
+    public partial class frmNhanVien : Form
     {
-        public Form4()
+        public frmNhanVien()
         {
             InitializeComponent();
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-           //GHFDFDFDHFSHF
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }
