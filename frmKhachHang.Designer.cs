@@ -1,6 +1,6 @@
 ﻿namespace quan_li_ban_sach
 {
-    partial class Form7
+    partial class frmKhachHang
     {
         /// <summary>
         /// Required designer variable.

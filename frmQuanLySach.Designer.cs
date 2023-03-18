@@ -34,6 +34,7 @@
             this.btnHienthiDS = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -74,6 +75,7 @@
             this.panel1.Controls.Add(this.btnHienthiDS);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.btnHuy);
+            this.panel1.Controls.Add(this.btnLuu);
             this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnThem);
@@ -130,6 +132,17 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // btnLuu
+            // 
+            this.btnLuu.Location = new System.Drawing.Point(16, 8);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(76, 31);
+            this.btnLuu.TabIndex = 3;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(184, 8);
@@ -176,7 +189,6 @@
             this.dgvSach.Name = "dgvSach";
             this.dgvSach.Size = new System.Drawing.Size(800, 218);
             this.dgvSach.TabIndex = 8;
-            this.dgvSach.Click += new System.EventHandler(this.dgvSach_Click);
             // 
             // lblMaSach
             // 
@@ -381,7 +393,6 @@
             // 
             // picAnh
             // 
-            this.picAnh.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.picAnh.Location = new System.Drawing.Point(14, 24);
             this.picAnh.Margin = new System.Windows.Forms.Padding(4);
             this.picAnh.Name = "picAnh";
@@ -477,6 +488,7 @@
         private System.Windows.Forms.Button btnHienthiDS;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;

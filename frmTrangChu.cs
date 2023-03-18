@@ -83,7 +83,7 @@ namespace quan_li_ban_sach
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Form7());
+            OpenChildForm(new frmNhanVien());
             lblTitle.Text = btnNhanVien.Text;
 
             btnNhanVien.BackColor = Color.FromArgb(153, 0, 0);
@@ -107,7 +107,7 @@ namespace quan_li_ban_sach
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmNhanVien());
+            OpenChildForm(new frmKhachHang());
             lblTitle.Text = btnKhachHang.Text;
 
             btnKhachHang.BackColor = Color.FromArgb(153, 76, 0);
