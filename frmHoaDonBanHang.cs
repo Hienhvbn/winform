@@ -45,11 +45,36 @@ namespace quan_li_ban_sach
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+            double sl, slcon, slxoa;
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string sql = "SELECT MaSach,SoLuong FROM tblChiTietHD WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+                DataTable tblS = Functions.GetDataToTable(sql);
+                for (int hang = 0; hang <= tblS.Rows.Count - 1; hang++)
+                {
+                    // Cập nhật lại số lượng cho các mặt hàng
+                    sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblSach WHERE MaSach = N'" + tblS.Rows[hang][0].ToString() + "'"));
+                    slxoa = Convert.ToDouble(tblS.Rows[hang][1].ToString());
+                    slcon = sl + slxoa;
+                    sql = "UPDATE tblSach SET SoLuong =" + slcon + " WHERE MaSach= N'" + tblS.Rows[hang][0].ToString() + "'";
+                    Functions.RunSQL(sql);
+                }
 
+                //Xóa chi tiết hóa đơn
+                sql = "DELETE tblChiTietHD WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
+                Functions.RunSqlDel(sql);
+
+                //Xóa hóa đơn
+                sql = "DELETE tblHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
+                Functions.RunSqlDel(sql);
+                ResetValues();
+                LoadDataGridView();
+                btnXoa.Enabled = false;
+                //btnInHoaDon.Enabled = false;
+            }
+        }
         private void label19_Click(object sender, EventArgs e)
         {
 
@@ -118,9 +143,9 @@ namespace quan_li_ban_sach
             str = "SELECT NgayBan FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
             dtpNgayBan.Value = DateTime.Parse((Functions.GetFieldValues(str)));
             str = "SELECT MaNhanVien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
-            cboMaNhanVien.Text = Functions.GetFieldValues(str);
+            cboMaNhanVien.SelectedValue = Functions.GetFieldValues(str);
             str = "SELECT MaKhach FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
-            cboMaKhach.Text = Functions.GetFieldValues(str);
+            cboMaKhach.SelectedValue = Functions.GetFieldValues(str);
             str = "SELECT TongTien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
             txtTongTien.Text = Functions.GetFieldValues(str);
             //lblBangChu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(txtTongTien.Text);
@@ -243,6 +268,39 @@ namespace quan_li_ban_sach
             txtGiamGia.Text = "0";
             txtThanhTien.Text = "0";
         }
+        private void dgvHDBanHang_DoubleClick(object sender, EventArgs e)
+        {
+            string MaHangxoa, sql;
+            Double ThanhTienxoa, SoLuongxoa, sl, slcon, tong, tongmoi;
+            if (tblCTHDB.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if ((MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            {
+                //Xóa hàng và cập nhật lại số lượng hàng 
+                MaHangxoa = dgvHDBanHang.CurrentRow.Cells["MaSach"].Value.ToString();
+                SoLuongxoa = Convert.ToDouble(dgvHDBanHang.CurrentRow.Cells["SoLuong"].Value.ToString());
+                ThanhTienxoa = Convert.ToDouble(dgvHDBanHang.CurrentRow.Cells["ThanhTien"].Value.ToString());
+                sql = "DELETE tblChiTietHD WHERE MaHDBan=N'" + txtMaHDBan.Text + "' AND MaSach = N'" + MaHangxoa + "'";
+                Functions.RunSQL(sql);
+                // Cập nhật lại số lượng cho các mặt hàng
+                sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblSach WHERE MaSach = N'" + MaHangxoa + "'"));
+                slcon = sl + SoLuongxoa;
+                sql = "UPDATE tblSach SET SoLuong =" + slcon + " WHERE MaSach= N'" + MaHangxoa + "'";
+                Functions.RunSQL(sql);
+                // Cập nhật lại tổng tiền cho hóa đơn bán
+                tong = Convert.ToDouble(Functions.GetFieldValues("SELECT TongTien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'"));
+                tongmoi = tong - ThanhTienxoa;
+                sql = "UPDATE tblHDBan SET TongTien =" + tongmoi + " WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+                Functions.RunSQL(sql);
+                txtTongTien.Text = tongmoi.ToString();
+                //lblBangChu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(tongmoi.ToString());
+                LoadDataGridView();
+            }
+        }
+
 
         private void cboMaKhach_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -319,6 +377,23 @@ namespace quan_li_ban_sach
             str = "Select TenNhanVien from tblNhanVien where MaNhanVien =N'" + cboMaNhanVien.SelectedValue + "'";
             txtTenNhanVien.Text = Functions.GetFieldValues(str);
         }
+        private void cboMaKhach_TextChanged(object sender, EventArgs e)
+        {
+            string str;
+            if (cboMaKhach.Text == "")
+            {
+                txtTenKhach.Text = "";
+                txtDiaChi.Text = "";
+                txtDienThoai.Text = "";
+            }
+            //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
+            str = "Select TenKhach from tblKhachHang where MaKhach = N'" + cboMaKhach.SelectedValue + "'";
+            txtTenKhach.Text = Functions.GetFieldValues(str);
+            str = "Select DiaChi from tblKhachHang where MaKhach = N'" + cboMaKhach.SelectedValue + "'";
+            txtDiaChi.Text = Functions.GetFieldValues(str);
+            str = "Select DienThoai from tblKhachHang where MaKhach= N'" + cboMaKhach.SelectedValue + "'";
+            txtDienThoai.Text = Functions.GetFieldValues(str);
+        }
         private void cboMaHang_SelectedIndexChanged(object sender, EventArgs e)
         {
             string str;
@@ -334,5 +409,32 @@ namespace quan_li_ban_sach
             txtdongia.Text = Functions.GetFieldValues(str);
         }
 
+        private void btntimkiem_Click_1(object sender, EventArgs e)
+        {
+            if (cboMaHDBan.Text == "")
+            {
+                MessageBox.Show("Bạn phải chọn một mã hóa đơn để tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cboMaHDBan.Focus();
+                return;
+            }
+            txtMaHDBan.Text = cboMaHDBan.Text;
+            LoadInfoHoaDon();
+            LoadDataGridView();
+            btnXoa.Enabled = true;
+            btnLuu.Enabled = true;
+            //btnInHoaDon.Enabled = true;
+            cboMaHDBan.SelectedIndex = -1;
+        }
+
+        private void cbomahoadon_DropDown(object sender, EventArgs e)
+        {
+            Functions.FillCombo("SELECT MaHDBan FROM tblHDBan", cboMaHDBan, "MaHDBan", "MaHDBan");
+            cboMaHDBan.SelectedIndex = -1;
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
