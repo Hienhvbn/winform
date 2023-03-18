@@ -243,6 +243,7 @@
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1000, 630);
             this.Name = "frmTrangChu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lí bán sách";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTrangChu_FormClosing);
             this.Load += new System.EventHandler(this.frmTrangChu_Load);
