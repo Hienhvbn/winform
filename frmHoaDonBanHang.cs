@@ -62,6 +62,7 @@ namespace quan_li_ban_sach
 
         private void LoadDataGridView()
         {
+            
             string sql;
             sql = "SELECT a.MaSach, b.TenSach, a.SoLuong, b.DonGiaBan, a.GiamGia,a.ThanhTien FROM tblChiTietHD AS a, tblSach AS b WHERE a.MaHDBan = N'" + txtMaHDBan.Text + "' AND a.MaSach=b.MaSach";
             tblCTHDB = Functions.GetDataToTable(sql);
@@ -98,11 +99,11 @@ namespace quan_li_ban_sach
             txtTongTien.ReadOnly = true;
             txtGiamGia.Text = "0";
             txtTongTien.Text = "0";
-            Functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhachHang", cboMaKhach, "MaKhach", "MaKhach");
+            Functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhachHang", cboMaKhach, "MaKhach", "TenKhach");
             cboMaKhach.SelectedIndex = -1;
-            Functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "MaNhanVien");
+            Functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "TenNhanVien");
             cboMaNhanVien.SelectedIndex = -1;
-            Functions.FillCombo("SELECT MaSach, TenSach FROM tblSach", cboMaSach, "MaSach", "MaSach");
+            Functions.FillCombo("SELECT MaSach, TenSach FROM tblSach", cboMaSach, "MaSach", "TenSach");
             cboMaSach.SelectedIndex = -1;
             //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
             if (txtMaHDBan.Text != "")
