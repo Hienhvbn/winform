@@ -334,9 +334,5 @@ namespace quan_li_ban_sach
             txtdongia.Text = Functions.GetFieldValues(str);
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

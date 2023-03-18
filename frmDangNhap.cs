@@ -58,7 +58,7 @@ namespace quan_li_ban_sach
                 txtPassword.Focus();
                 return;
             }
-            SqlConnection con = new SqlConnection("Server = VHien03; Database = Account; Integrated Security = True");
+            SqlConnection con = new SqlConnection("Server = DESKTOP-1COAG34; Database = Account; Integrated Security = True");
             try
             {
                 con.Open();
@@ -102,6 +102,26 @@ namespace quan_li_ban_sach
             btnClose.BackColor = SystemColors.Control;
         }
 
+        private void txtAccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                txtPassword.Focus();
+                txtPassword.BackColor = Color.White;
+                panel4.BackColor = Color.White;
+                panel3.BackColor = SystemColors.Control;
+                txtAccount.BackColor = SystemColors.Control;
+            }
+        }
 
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+
+                btnLogin.Focus();
+
+            }
+        }
     }
 }

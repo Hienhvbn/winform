@@ -70,15 +70,6 @@ namespace quan_li_ban_sach
             panelTop.BackColor = Color.FromArgb(0, 102, 102);
             panelLogo.BackColor = Color.FromArgb(0, 51, 51);
 
-            //btnHoaDon.ForeColor = Color.FromArgb(41, 128, 185);
-            //btnSach.ForeColor = SystemColors.Control;
-            //btnNhanVien.ForeColor = SystemColors.Control;
-            //btnKhachHang.ForeColor = SystemColors.Control;
-
-            //btnHoaDon.BackColor = SystemColors.Control;
-            //btnSach.BackColor = Color.FromArgb(41, 128, 185);
-            //btnNhanVien.BackColor = Color.FromArgb(41, 128, 185);
-            //btnKhachHang.BackColor = Color.FromArgb(41, 128, 185);
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
@@ -94,20 +85,11 @@ namespace quan_li_ban_sach
             panelTop.BackColor = Color.FromArgb(153, 0, 0);
             panelLogo.BackColor = Color.FromArgb(102, 0, 0);
 
-            //btnNhanVien.ForeColor = Color.FromArgb(41, 128, 185);
-            //btnSach.ForeColor = SystemColors.Control;
-            //btnHoaDon.ForeColor = SystemColors.Control;
-            //btnKhachHang.ForeColor = SystemColors.Control;
-
-            //btnNhanVien.BackColor = SystemColors.Control;
-            //btnSach.BackColor = Color.FromArgb(24, 128, 185);
-            //btnHoaDon.BackColor = Color.FromArgb(24, 128, 185);
-            //btnKhachHang.BackColor = Color.FromArgb(24, 128, 185);
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmKhachHang());
+            OpenChildForm(new Form7());
             lblTitle.Text = btnKhachHang.Text;
 
             btnKhachHang.BackColor = Color.FromArgb(153, 76, 0);
@@ -118,15 +100,6 @@ namespace quan_li_ban_sach
             panelTop.BackColor = Color.FromArgb(153, 76, 0);
             panelLogo.BackColor = Color.FromArgb(102, 51, 0);
 
-            //btnKhachHang.ForeColor = Color.FromArgb(41, 128, 185);
-            //btnSach.ForeColor = SystemColors.Control;
-            //btnNhanVien.ForeColor = SystemColors.Control;
-            //btnHoaDon.ForeColor = SystemColors.Control;
-
-            //btnKhachHang.BackColor = SystemColors.Control;
-            //btnSach.BackColor = Color.FromArgb(24, 128, 185);
-            //btnNhanVien.BackColor = Color.FromArgb(24, 128, 185);
-            //btnHoaDon.BackColor = Color.FromArgb(24, 128, 185);
         }
 
         private void frmTrangChu_FormClosing(object sender, FormClosingEventArgs e)
@@ -136,7 +109,11 @@ namespace quan_li_ban_sach
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
 
     }
