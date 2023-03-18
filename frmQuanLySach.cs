@@ -24,7 +24,6 @@ namespace quan_li_ban_sach
         private void frmQuanLySach_Load(object sender, EventArgs e)
         {
             Class.Functions.Connect();
-            btnLuu.Enabled = false;
             btnHuy.Enabled = false;
             txtMaSach.Enabled = false;
             txtTenSach.Enabled = false;
@@ -35,8 +34,7 @@ namespace quan_li_ban_sach
             txtDonGiaBan.Enabled = false;
             txtAnh.Enabled = false;
             txtGhiChu.Enabled = false;
-            LoadDataGridView(); //Hiển thị bảng tblChatLieu
-            btnLuu.Hide();
+            LoadDataGridView(); //Hiển thị bảng tblSach
         }
         private void ResetValues()
         {
@@ -81,147 +79,180 @@ namespace quan_li_ban_sach
             dgvSach.AllowUserToAddRows = false;
             dgvSach.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
-        private void dgvSach_Click(object sender, EventArgs e)
-        {
-            //string MaChatLieu;
-            string sql;
-            if (btnThem.Enabled == false)
-            {
-                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaSach.Focus();
-                return;
-            }
-            if (tblS.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            txtMaSach.Text = dgvSach.CurrentRow.Cells["MaSach"].Value.ToString();
-            txtTenSach.Text = dgvSach.CurrentRow.Cells["TenSach"].Value.ToString();
-            txtTenSach.Text = dgvSach.CurrentRow.Cells["TacGia"].Value.ToString();
-            txtTenSach.Text = dgvSach.CurrentRow.Cells["NXB"].Value.ToString();
-            //MaChatLieu = dgvSach.CurrentRow.Cells["MaChatLieu"].Value.ToString();
-            //sql = "SELECT TenChatLieu FROM tblChatLieu WHERE MaChatLieu=N'" + MaChatLieu + "'";
-            //cboMaChatLieu.Text = Functions.GetFieldValues(sql);
-            txtSoLuong.Text = dgvSach.CurrentRow.Cells["SoLuong"].Value.ToString();
-            txtDonGiaNhap.Text = dgvSach.CurrentRow.Cells["DonGiaNhap"].Value.ToString();
-            txtDonGiaBan.Text = dgvSach.CurrentRow.Cells["DonGiaBan"].Value.ToString();
-            sql = "SELECT Anh FROM tblSach WHERE MaSach=N'" + txtMaSach.Text + "'";
-            txtAnh.Text = Functions.GetFieldValues(sql);
-            picAnh.Image = Image.FromFile(txtAnh.Text);
-            sql = "SELECT GhiChu FROM tblSach WHERE MaSach = N'" + txtMaSach.Text + "'";
-            txtGhiChu.Text = Functions.GetFieldValues(sql);
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnHuy.Enabled = true;
-        }
 
 
 
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            btnThem.Enabled = false;
+            // Bật, Tắt các nút
+            dgvSach.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnTimKiem.Enabled = false;
             btnHuy.Enabled = true;
-            btnLuu.Enabled = true;
- 
-            txtMaSach.Enabled = true;
-            txtMaSach.Focus();
-            txtTenSach.Enabled = true;
-            txtTacGia.Enabled = true;
-            txtNXB.Enabled = true;
-            txtSoLuong.Enabled = true;
-            txtDonGiaNhap.Enabled = true;
-            txtDonGiaBan.Enabled = true;
-            txtAnh.Enabled = true;
-            txtGhiChu.Enabled = true;
-            btnThem.Hide();
-            btnLuu.Show();
-            /*if (txtMaSach.Text == "")
+
+            // Bật các textbox để nhập
+            if (txtMaSach.Enabled == false)
             {
-                MessageBox.Show("Vui lòng nhập mã sách");
+                ResetValues();
+                txtMaSach.Enabled = true;
+                txtMaSach.Focus();
+                txtTenSach.Enabled = true;
+                txtTacGia.Enabled = true;
+                txtNXB.Enabled = true;
+                txtSoLuong.Enabled = true;
+                txtDonGiaNhap.Enabled = true;
+                txtDonGiaBan.Enabled = true;
+                txtAnh.Enabled = true;
+                txtGhiChu.Enabled = true;
+                return;
+            }
+
+            string sql;
+
+            // Kiểm tra Nếu chưa nhập đủ dữ liệu thì thông báo nhập
+            if (txtMaSach.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mã sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtMaSach.Focus();
                 return;
             }
-            if (txtTenSach.Text == "")
+            if (txtTenSach.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Vui lòng nhập tên sách");
+                MessageBox.Show("Bạn phải nhập tên sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtTenSach.Focus();
                 return;
             }
-            if (txtTacGia.Text == "")
+            if (txtTacGia.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Vui lòng nhập tác giả");
+                MessageBox.Show("Bạn phải nhập tên tác giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtTacGia.Focus();
                 return;
             }
-            if (txtNXB.Text == "")
+            if (txtNXB.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Vui lòng nhập NXB");
+                MessageBox.Show("Bạn phải nhập tên NXB", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtNXB.Focus();
                 return;
             }
-            if (txtSoLuong.Text == "")
+            if (txtAnh.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Vui lòng nhập số lượng");
-                txtSoLuong.Focus();
+                MessageBox.Show("Bạn phải chọn ảnh minh hoạ cho sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnOpen.Focus();
                 return;
             }
-            if (txtGiaTien.Text == "")
+
+            // Viết câu lệnh SQL để thêm vào database
+            sql = "SELECT MaSach FROM tblSach WHERE MaSach=N'" + txtMaSach.Text.Trim() + "'";
+            // Gọi hàm kiểm tra Primary key
+            if (Functions.CheckKey(sql))
             {
-                MessageBox.Show("Vui lòng nhập giá tiền");
-                txtGiaTien.Focus();
+                MessageBox.Show("Mã sách này đã tồn tại, bạn phải chọn mã sách khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaSach.Focus();
                 return;
             }
-            string sqlthem = "INSERT INTO tblSach VALUES ( '" + txtMaSach.Text.Trim() + "','" + txtTenSach.Text.Trim() + "','" + txtTacGia.Text.Trim() + "','" + txtNXB.Text.Trim() + "','" + txtSoLuong.Text.Trim() + "','" + txtGiaTien.Text.Trim() + "')";
-            try
-            {
-                SqlCommand command = new SqlCommand(sqlthem, con);
-                command.ExecuteNonQuery();
-                //loaddulieulen();
-                MessageBox.Show("Thêm thành công");
-            }
-            catch
-            {
-                MessageBox.Show("Thêm không thành công");
-            }
+            sql = "INSERT INTO tblSach(MaSach,TenSach,TacGia,NXB,SoLuong,DonGiaNhap,DonGiaBan,Anh,Ghichu) VALUES(N'"
+                + txtMaSach.Text.Trim() + "',N'" + txtTenSach.Text.Trim() +
+                "',N'" + txtTacGia.Text.Trim() + "',N'" + txtNXB.Text.Trim() +
+                "'," + txtSoLuong.Text.Trim() + "," + txtDonGiaNhap.Text +
+                "," + txtDonGiaBan.Text + ",'" + txtAnh.Text + "',N'" + txtGhiChu.Text.Trim() + "')";
+
+            Functions.RunSQL(sql); // Gọi hàm chạy câu lệnh SQL
+            LoadDataGridView();
+            ResetValues();
+
+            dgvSach.Enabled = true; // Bật, Tắt các button
+            btnXoa.Enabled = true;
+            btnThem.Enabled = true;
+            btnSua.Enabled = true;
+            btnTimKiem.Enabled = true;
+            btnHuy.Enabled = false;
+
+            txtMaSach.Enabled = false; // Bật, Tắt các textbox
+            txtTenSach.Enabled = false;
+            txtTacGia.Enabled = false;
+            txtNXB.Enabled = false;
+            txtSoLuong.Enabled = false;
+            txtDonGiaNhap.Enabled = false;
+            txtDonGiaBan.Enabled = false;
+            txtAnh.Enabled = false;
+            txtGhiChu.Enabled = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaSach.Text == "")
+            // Bật, Tắt các nút
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
+            btnTimKiem.Enabled = false;
+            btnHuy.Enabled = true;
+
+            // Bật, Tắt các nút
+            if (txtMaSach.Enabled == false)
             {
-                MessageBox.Show("Vui lòng nhập mã sách muốn xóa");
+                txtMaSach.Enabled = true;
                 txtMaSach.Focus();
+                txtTenSach.Enabled = false;
+                txtTacGia.Enabled = false;
+                txtNXB.Enabled = false;
+                txtSoLuong.Enabled = false;
+                txtDonGiaNhap.Enabled = false;
+                txtDonGiaBan.Enabled = false;
+                txtAnh.Enabled = false;
+                txtGhiChu.Enabled = false;
                 return;
             }
-            else
-            {
-                if (MessageBox.Show("Bạn có muốn xóa không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    string sqlxoa = "DELETE Books WHERE MaSach = '" + txtMaSach.Text.Trim() + "'";
-                    try
-                    {
-                        SqlCommand command = new SqlCommand(sqlxoa, con);
-                        command.ExecuteNonQuery();
-                        //loaddulieulen();
-                        MessageBox.Show("Xóa thành công");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Xóa không thành công");
-                    }
-                }
 
-            }*/
+            string sql;
+
+            // Kiểm tra nếu chưa nhập đủ dữ liệu thì thông báo
+            if (tblS.Rows.Count == 0)
+            {
+                MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtMaSach.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn bản ghi nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (MessageBox.Show("Bạn có muốn xoá bản ghi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                sql = "DELETE tblSach WHERE MaSach=N'" + txtMaSach.Text + "'";
+                Functions.RunSqlDel(sql);
+                LoadDataGridView();
+                ResetValues();
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            // Bật, Tắt các nút
+            btnThem.Enabled = false;
+            btnXoa.Enabled = false;
+            btnTimKiem.Enabled = false;
+            btnHuy.Enabled = true;
+
+            // Bật các textbox để sửa
+            if (txtMaSach.Enabled == false)
+            {
+                txtMaSach.Enabled = true;
+                txtMaSach.Focus();
+                txtTenSach.Enabled = true;
+                txtTacGia.Enabled = true;
+                txtNXB.Enabled = true;
+                txtSoLuong.Enabled = true;
+                txtDonGiaNhap.Enabled = true;
+                txtDonGiaBan.Enabled = true;
+                txtAnh.Enabled = true;
+                txtGhiChu.Enabled = true;
+                return;
+            }
+
             string sql;
+
+            // Kiểm tra nếu chưa nhập đủ dữ liệu thì thông báo
             if (tblS.Rows.Count == 0)
             {
                 MessageBox.Show("Không còn dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -251,52 +282,23 @@ namespace quan_li_ban_sach
                 txtNXB.Focus();
                 return;
             }
-            /*if (cboMaChatLieu.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập chất liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboMaChatLieu.Focus();
-                return;
-            }*/
             if (txtAnh.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải ảnh minh hoạ cho hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải chọn ảnh minh hoạ cho sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtAnh.Focus();
                 return;
             }
+
+            // Viết câu lệnh SQL để sửa
             sql = "UPDATE tblSach SET TenSach=N'" + txtTenSach.Text.Trim().ToString() +
                 "',TacGia=N'" + txtTacGia.Text.ToString() +
                 "',NXB=N'" + txtNXB.Text.ToString() +
                 "',SoLuong=" + txtSoLuong.Text +
                 ",Anh='" + txtAnh.Text + "',Ghichu=N'" + txtGhiChu.Text + "' WHERE MaSach=N'" + txtMaSach.Text + "'";
-            Functions.RunSQL(sql);
+            Functions.RunSQL(sql); //  Gọi hàm chạy câu lệnh SQL
             LoadDataGridView();
             ResetValues();
-            btnHuy.Enabled = false;
-            /*if (txtMaSach.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập mã sách muốn sửa");
-                txtMaSach.Focus();
-                return;
-            }
-            else
-            {
-                if (MessageBox.Show("Bạn có muốn sửa không?", "Chú ý", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    string sqlsua = "UPDATE Books SET TenSach = '" + txtTenSach.Text.Trim() + "'," + "TacGia = '" + txtTacGia.Text.Trim() + "'," + "NXB = '" + txtNXB.Text.Trim() + "'," + "SoLuong = " + txtSoLuong.Text.Trim() + "," + "GiaTien = " + txtGiaTien.Text.Trim() + " WHERE MaSach = '" + txtMaSach.Text.Trim() + "'";
-                    try
-                    {
-                        SqlCommand command = new SqlCommand(sqlsua, con);
-                        command.ExecuteNonQuery();
-                        //loaddulieulen();
-                        MessageBox.Show("Sửa thành công");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Sửa không thành công");
-                    }
-                }
-
-            }*/
+            btnHuy.Enabled = false; // Khi sửa xong thì Tắt nút Hủy
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -370,117 +372,6 @@ namespace quan_li_ban_sach
             }
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            
-            string sql;
-            if (txtMaSach.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập mã hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaSach.Focus();
-                return;
-            }
-            if (txtTenSach.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTenSach.Focus();
-                return;
-            }
-            if (txtTacGia.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên tác giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTacGia.Focus();
-                return;
-            }
-            if (txtNXB.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên NXB", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNXB.Focus();
-                return;
-            }
-            if (txtAnh.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải chọn ảnh minh hoạ cho hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnOpen.Focus();
-                return;
-            }
-            sql = "SELECT MaSach FROM tblSach WHERE MaSach=N'" + txtMaSach.Text.Trim() + "'";
-            if (Functions.CheckKey(sql))
-            {
-                MessageBox.Show("Mã hàng này đã tồn tại, bạn phải chọn mã hàng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaSach.Focus();
-                return;
-            }
-            sql = "INSERT INTO tblSach(MaSach,TenSach,TacGia,NXB,SoLuong,DonGiaNhap,DonGiaBan,Anh,Ghichu) VALUES(N'"
-                + txtMaSach.Text.Trim() + "',N'" + txtTenSach.Text.Trim() +
-                "',N'" + txtTacGia.Text.Trim() + "',N'" + txtNXB.Text.Trim() +
-                "'," + txtSoLuong.Text.Trim() + "," + txtDonGiaNhap.Text +
-                "," + txtDonGiaBan.Text + ",'" + txtAnh.Text + "',N'" + txtGhiChu.Text.Trim() + "')";
-
-            Functions.RunSQL(sql);
-            LoadDataGridView();
-            ResetValues();
-            btnLuu.Hide();
-            btnThem.Show();
-            btnXoa.Enabled = true;
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            btnTimKiem.Enabled = true;
-            btnHuy.Enabled = false;
-            btnLuu.Enabled = false;
-            txtMaSach.Enabled = false;
-            txtTenSach.Enabled = false;
-            txtTacGia.Enabled = false;
-            txtNXB.Enabled = false;
-            txtSoLuong.Enabled = false;
-            txtDonGiaNhap.Enabled = false;
-            txtDonGiaBan.Enabled = false;
-            txtAnh.Enabled = false;
-            txtGhiChu.Enabled = false;
-        }
-
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            btnThem.Enabled = false;
-            btnSua.Enabled = false;
-            btnTimKiem.Enabled = false;
-            btnHuy.Enabled = true;
-            btnLuu.Enabled = false;
-            if (txtMaSach.Enabled == false)
-            {
-                txtMaSach.Enabled = true;
-                txtMaSach.Focus();
-                txtTenSach.Enabled = false;
-                txtTacGia.Enabled = false;
-                txtNXB.Enabled = false;
-                txtSoLuong.Enabled = false;
-                txtDonGiaNhap.Enabled = false;
-                txtDonGiaBan.Enabled = false;
-                txtAnh.Enabled = false;
-                txtGhiChu.Enabled = false;
-                return;
-            }
-            
-            string sql;
-            if (tblS.Rows.Count == 0)
-            {
-                MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (txtMaSach.Text == "")
-            {
-                MessageBox.Show("Bạn chưa chọn bản ghi nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (MessageBox.Show("Bạn có muốn xoá bản ghi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                sql = "DELETE tblSach WHERE MaSach=N'" + txtMaSach.Text + "'";
-                Functions.RunSqlDel(sql);
-                LoadDataGridView();
-                ResetValues();
-            }
-        }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
@@ -497,13 +388,14 @@ namespace quan_li_ban_sach
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            if(txtMaSach.Enabled == false)
+            // Bật, Tắt các nút và textbox
+            if (txtMaSach.Enabled == false)
             {
                 btnXoa.Enabled = false;
                 btnThem.Enabled = false;
                 btnSua.Enabled = false;
                 btnHuy.Enabled = true;
-                btnLuu.Enabled = false;
+
                 txtMaSach.Enabled = true;
                 txtTenSach.Enabled = true;
                 txtTacGia.Enabled = true;
@@ -515,13 +407,15 @@ namespace quan_li_ban_sach
                 txtGhiChu.Enabled = false;
                 return;
             }
-            
+
             string sql;
+            // Kiểm tra nếu chưa nhập đủ dữ liệu thì thông báo
             if ((txtMaSach.Text == "") && (txtTenSach.Text == ""))
             {
                 MessageBox.Show("Bạn hãy nhập điều kiện tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            // Viết câu lệnh SQL để tìm kiếm
             sql = "SELECT * from tblSach WHERE 1=1";
             if (txtMaSach.Text != "")
                 sql += " AND MaSach LIKE N'%" + txtMaSach.Text + "%'";
@@ -534,7 +428,7 @@ namespace quan_li_ban_sach
             /*if (cboMaChatLieu.Text != "")
                 sql += " AND MaChatLieu LIKE N'%" + cboMaChatLieu.SelectedValue + "%'";
             */
-            tblS = Functions.GetDataToTable(sql);
+            tblS = Functions.GetDataToTable(sql); // Gọi hàm lấy dữ liệu từ bảng trong database
             if (tblS.Rows.Count == 0)
                 MessageBox.Show("Không có bản ghi thoả mãn điều kiện tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else MessageBox.Show("Có " + tblS.Rows.Count + "  bản ghi thoả mãn điều kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -552,15 +446,13 @@ namespace quan_li_ban_sach
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            btnThem.Show();
-            btnLuu.Hide();
             ResetValues();
+            dgvSach.Enabled = true;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnTimKiem.Enabled = true;
             btnHuy.Enabled = false;
-            btnLuu.Enabled = false;
             txtMaSach.Enabled = false;
             txtTenSach.Enabled = false;
             txtTacGia.Enabled = false;
@@ -636,6 +528,34 @@ namespace quan_li_ban_sach
         private void txtDonGiaNhap_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dgvSach_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if (tblS.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMaSach.Text = dgvSach.CurrentRow.Cells["MaSach"].Value.ToString();
+            txtTenSach.Text = dgvSach.CurrentRow.Cells["TenSach"].Value.ToString();
+            txtTacGia.Text = dgvSach.CurrentRow.Cells["TacGia"].Value.ToString();
+            txtNXB.Text = dgvSach.CurrentRow.Cells["NXB"].Value.ToString();
+            //MaChatLieu = dgvSach.CurrentRow.Cells["MaChatLieu"].Value.ToString();
+            //sql = "SELECT TenChatLieu FROM tblChatLieu WHERE MaChatLieu=N'" + MaChatLieu + "'";
+            //cboMaChatLieu.Text = Functions.GetFieldValues(sql);
+            txtSoLuong.Text = dgvSach.CurrentRow.Cells["SoLuong"].Value.ToString();
+            txtDonGiaNhap.Text = dgvSach.CurrentRow.Cells["DonGiaNhap"].Value.ToString();
+            txtDonGiaBan.Text = dgvSach.CurrentRow.Cells["DonGiaBan"].Value.ToString();
+            sql = "SELECT Anh FROM tblSach WHERE MaSach=N'" + txtMaSach.Text + "'";
+            txtAnh.Text = Functions.GetFieldValues(sql);
+            picAnh.Image = Image.FromFile(txtAnh.Text);
+            sql = "SELECT GhiChu FROM tblSach WHERE MaSach = N'" + txtMaSach.Text + "'";
+            txtGhiChu.Text = Functions.GetFieldValues(sql);
+            //btnSua.Enabled = true;
+            //btnXoa.Enabled = true;
+            //btnHuy.Enabled = true;
         }
     }
 }///////

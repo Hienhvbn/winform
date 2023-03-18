@@ -58,7 +58,7 @@ namespace quan_li_ban_sach
                 txtPassword.Focus();
                 return;
             }
-            SqlConnection con = new SqlConnection("Server = VHien03; Database = Account; Integrated Security = True");
+            SqlConnection con = new SqlConnection("Server = DESKTOP-1COAG34; Database = Account; Integrated Security = True");
             try
             {
                 con.Open();
