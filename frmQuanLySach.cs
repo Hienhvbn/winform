@@ -298,7 +298,7 @@ namespace quan_li_ban_sach
             Functions.RunSQL(sql); //  Gọi hàm chạy câu lệnh SQL
             LoadDataGridView();
             ResetValues();
-            btnHuy.Enabled = false; // Khi sửa xong thì Tắt nút Hủy
+            
         }
 
         private void btnDong_Click(object sender, EventArgs e)
