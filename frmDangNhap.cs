@@ -102,6 +102,26 @@ namespace quan_li_ban_sach
             btnClose.BackColor = SystemColors.Control;
         }
 
+        private void txtAccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                txtPassword.Focus();
+                txtPassword.BackColor = Color.White;
+                panel4.BackColor = Color.White;
+                panel3.BackColor = SystemColors.Control;
+                txtAccount.BackColor = SystemColors.Control;
+            }
+        }
 
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+
+                btnLogin.Focus();
+
+            }
+        }
     }
 }
