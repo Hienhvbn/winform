@@ -20,7 +20,7 @@ namespace quan_li_ban_sach
             //Application.Run(new frmQuanLySach());
             Application.Run(new frmDangNhap());
             //Application.Run(new frmTrangChu());
-
+            //Application.Run(new frmHoaDonBanHang());
         }
     }
 }
