@@ -16,7 +16,7 @@ namespace quan_li_ban_sach.Class
         public static void Connect()
         {
             Con = new SqlConnection();   //Khởi tạo đối tượng
-            Con.ConnectionString = "Server = VHien03; Database = qlbs ;Integrated Security = True";
+            Con.ConnectionString = "Server = DESKTOP-1COAG34; Database = qlbs ;Integrated Security = True";
             Con.Open();                  //Mở kết nối
             //Kiểm tra kết nối
             if (Con.State != ConnectionState.Open)
@@ -178,19 +178,6 @@ namespace quan_li_ban_sach.Class
                     break;
             }
             return h;
-        }
-        public static bool IsDate(string date)
-        {
-            string[] elements = date.Split('/');
-            if ((Convert.ToInt32(elements[0]) >= 1) && (Convert.ToInt32(elements[0]) <= 31) && (Convert.ToInt32(elements[1]) >= 1) && (Convert.ToInt32(elements[1]) <= 12) && (Convert.ToInt32(elements[2]) >= 1900))
-                return true;
-            else return false;
-        }
-        public static string ConvertDateTime(string date)
-        {
-            string[] elements = date.Split('/');
-            string dt = string.Format("{0}/{1}/{2}", elements[0], elements[1], elements[2]);
-            return dt;
         }
     }
 }
