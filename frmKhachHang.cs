@@ -50,20 +50,20 @@ namespace quan_li_ban_sach
             dgvKhachHang.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
-        private void dgvKhachHang_Click(object sender, EventArgs e)
+        private void ResetValues()
         {
-
-            if (tblKH.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            txtMaKhach.Text = dgvKhachHang.CurrentRow.Cells["MaKhach"].Value.ToString();
-            txtTenKhach.Text = dgvKhachHang.CurrentRow.Cells["TenKhach"].Value.ToString();
-            txtDiaChi.Text = dgvKhachHang.CurrentRow.Cells["DiaChi"].Value.ToString();
-            mtbDienThoai.Text = dgvKhachHang.CurrentRow.Cells["DienThoai"].Value.ToString();
+            txtMaKhach.Text = "";
+            txtTenKhach.Text = "";
+            txtDiaChi.Text = "";
+            mtbDienThoai.Text = "";
+            txtMaKhach.Enabled = false;
+            txtTenKhach.Enabled = false;
+            txtDiaChi.Enabled = false;
+            mtbDienThoai.Enabled = false;
         }
 
+        
+        // ---------------------------------BUTTON THÊM---------------------------------
         private void btnThem_Click(object sender, EventArgs e)
         {
             // Bật, Tắt các nút
@@ -120,17 +120,27 @@ namespace quan_li_ban_sach
             //Chèn thêm
             sql = "INSERT INTO tblKhachHang VALUES (N'" + txtMaKhach.Text.Trim() +
                 "',N'" + txtTenKhach.Text.Trim() + "',N'" + txtDiaChi.Text.Trim() + "','" + mtbDienThoai.Text + "')";
-            Functions.RunSQL(sql);
-            LoadDataGridView();
-            ResetValues();
 
-            btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
-            btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
-            btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
-            btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
-            txtMaKhach.Enabled = false;
+            try
+            {
+                Functions.RunSQL(sql); // Gọi hàm chạy câu lệnh SQL
+                LoadDataGridView();
+                ResetValues();
+                MessageBox.Show("Thêm thành công");
+                dgvKhachHang.Enabled = true;
+                btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
+                btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
+                btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
+                btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
+            }
+            catch
+            {
+                MessageBox.Show("Thêm không thành công");
+            }
+
+            
         }
-
+        // ---------------------------------BUTTON XÓA---------------------------------
         private void btnXoa_Click(object sender, EventArgs e)
         {
             // Bật, Tắt các nút
@@ -166,8 +176,13 @@ namespace quan_li_ban_sach
                 Functions.RunSqlDel(sql);
                 LoadDataGridView();
                 ResetValues();
+                btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
+                btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
+                btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
+                btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
             }
         }
+        // ---------------------------------BUTTON SỬA---------------------------------
         private void btnSua_Click(object sender, EventArgs e)
         {
             // Bật, Tắt các nút
@@ -218,12 +233,25 @@ namespace quan_li_ban_sach
             sql = "UPDATE tblKhachHang SET TenKhach=N'" + txtTenKhach.Text.Trim().ToString() + "',DiaChi=N'" +
                 txtDiaChi.Text.Trim().ToString() + "',DienThoai='" + mtbDienThoai.Text.ToString() +
                 "' WHERE MaKhach=N'" + txtMaKhach.Text + "'";
-            Functions.RunSQL(sql);
-            LoadDataGridView();
-            ResetValues();
-            btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
-        }
+            
 
+            try
+            {
+                Functions.RunSQL(sql); //  Gọi hàm chạy câu lệnh SQL
+                LoadDataGridView();
+                MessageBox.Show("Sửa thành công");
+                ResetValues();
+                btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
+                btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
+                btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
+                btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
+            }
+            catch
+            {
+                MessageBox.Show("Sửa không thành công");
+            }
+        }
+        // ---------------------------------BUTTON HỦY---------------------------------
         private void btnHuy_Click(object sender, EventArgs e)
         {
             ResetValues();
@@ -232,45 +260,33 @@ namespace quan_li_ban_sach
             btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
             btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
             btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
-            txtMaKhach.Enabled = false;
-            txtTenKhach.Enabled = false;
-            txtDiaChi.Enabled = false;
-            mtbDienThoai.Enabled = false;
+
             LoadDataGridView();
         }
-
-        private void ResetValues()
+        // ---------------------------------BUTTON ĐÓNG---------------------------------
+        private void btnDong_Click(object sender, EventArgs e)
         {
-            txtMaKhach.Text = "";
-            txtTenKhach.Text = "";
-            txtDiaChi.Text = "";
-            mtbDienThoai.Text = "";
-            txtMaKhach.Enabled = false;
-            txtTenKhach.Enabled = false;
-            txtDiaChi.Enabled = false;
-            mtbDienThoai.Enabled = false;
+            this.Close();
+        }
+        // Sự kiện khi Click vào DataGridView thì sẽ hiển thị lên các control tương ứng
+        private void dgvKhachHang_Click(object sender, EventArgs e)
+        {
+
+            if (tblKH.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMaKhach.Text = dgvKhachHang.CurrentRow.Cells["MaKhach"].Value.ToString();
+            txtTenKhach.Text = dgvKhachHang.CurrentRow.Cells["TenKhach"].Value.ToString();
+            txtDiaChi.Text = dgvKhachHang.CurrentRow.Cells["DiaChi"].Value.ToString();
+            mtbDienThoai.Text = dgvKhachHang.CurrentRow.Cells["DienThoai"].Value.ToString();
         }
         private void txtMaKhach_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 SendKeys.Send("{TAB}");
         }
-
-        private void txtMaKhach_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         
     }
 }

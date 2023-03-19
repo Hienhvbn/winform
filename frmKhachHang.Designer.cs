@@ -182,7 +182,7 @@
             this.btnDong.TabIndex = 14;
             this.btnDong.Text = "X";
             this.btnDong.UseVisualStyleBackColor = false;
-            this.btnDong.Click += new System.EventHandler(this.button6_Click);
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // mtbDienThoai
             // 
@@ -230,7 +230,6 @@
             this.label4.Size = new System.Drawing.Size(79, 14);
             this.label4.TabIndex = 18;
             this.label4.Text = "Điện thoại:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // frmKhachHang
             // 

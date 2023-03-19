@@ -23,7 +23,6 @@ namespace quan_li_ban_sach
 
         private void frmQuanLySach_Load(object sender, EventArgs e)
         {
-            Class.Functions.Connect();
             btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
             txtMaSach.Enabled = false;
             txtTenSach.Enabled = false;
@@ -47,12 +46,20 @@ namespace quan_li_ban_sach
             txtSoLuong.Text = "0";
             txtDonGiaNhap.Text = "0";
             txtDonGiaBan.Text = "0";
-            //txtSoLuong.Enabled = true;
-            //txtDonGiaNhap.Enabled = false;
-            //txtDonGiaBan.Enabled = false;
             txtAnh.Text = "";
             picAnh.Image = null;
             txtGhiChu.Text = "";
+
+            txtMaSach.Enabled = false;
+            txtTenSach.Enabled = false;
+            txtTacGia.Enabled = false;
+            txtNXB.Enabled = false;
+            txtSoLuong.Enabled = false;
+            txtDonGiaNhap.Enabled = false;
+            txtDonGiaBan.Enabled = false;
+            txtAnh.Enabled = false;
+            txtGhiChu.Enabled = false;
+            
         }
 
         // Hàm tải dữ liệu từ bảng vào DataGridView
@@ -84,80 +91,11 @@ namespace quan_li_ban_sach
             dgvSach.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
-
-        // -----------------------BUTTON ĐÓNG--------------------------
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txtMaSach_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtTenSach.Focus();
-            }
-        }
-
-        private void txtTenSach_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtTacGia.Focus();
-            }
-        }
-
-        private void txtTacGia_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtNXB.Focus();
-            }
-        }
-
-        private void txtNXB_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtSoLuong.Focus();
-            }
-        }
-
-        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtDonGiaNhap.Focus();
-            }
-        }
-
-        private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtDonGiaBan.Focus();
-            }
-        }
-        private void txtDonGiaBan_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                btnOpen.Focus();
-            }
-        }
-
-        private void btnOpen_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                txtGhiChu.Focus();
-            }
-        }
         // -----------------------BUTTON THÊM--------------------------
         private void btnThem_Click(object sender, EventArgs e)
         {
             // Bật, Tắt các nút
-            dgvSach.Enabled = false; 
+            dgvSach.Enabled = false;
             btnSua.Enabled = false; btnSua.Cursor = Cursors.Arrow;
             btnXoa.Enabled = false; btnXoa.Cursor = Cursors.Arrow;
             btnTimKiem.Enabled = false; btnTimKiem.Cursor = Cursors.Arrow;
@@ -234,14 +172,21 @@ namespace quan_li_ban_sach
             {
                 Functions.RunSQL(sql); // Gọi hàm chạy câu lệnh SQL
                 LoadDataGridView();
-                ResetValues();
                 MessageBox.Show("Thêm thành công");
+                ResetValues();
+                dgvSach.Enabled = true;
+                btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
+                btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
+                btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
+                btnTimKiem.Enabled = true; btnTimKiem.Cursor = Cursors.Hand;
+                btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
             }
             catch
             {
                 MessageBox.Show("Thêm không thành công");
             }
         }
+
         // -----------------------BUTTON XÓA--------------------------
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -286,8 +231,14 @@ namespace quan_li_ban_sach
                 Functions.RunSqlDel(sql);
                 LoadDataGridView();
                 ResetValues();
+                btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
+                btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
+                btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
+                btnTimKiem.Enabled = true; btnTimKiem.Cursor = Cursors.Hand;
+                btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
             }
         }
+
         // -----------------------BUTTON SỬA--------------------------
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -369,8 +320,13 @@ namespace quan_li_ban_sach
             {
                 Functions.RunSQL(sql); //  Gọi hàm chạy câu lệnh SQL
                 LoadDataGridView();
-                ResetValues();
                 MessageBox.Show("Sửa thành công");
+                ResetValues();
+                btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
+                btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
+                btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
+                btnTimKiem.Enabled = true; btnTimKiem.Cursor = Cursors.Hand;
+                btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
             }
             catch
             {
@@ -428,7 +384,6 @@ namespace quan_li_ban_sach
             dgvSach.DataSource = tblS;
             //ResetValues();
         }
-
         // -----------------------BUTTON HIỂN THỊ DS--------------------------
         private void btnHienthiDS_Click(object sender, EventArgs e)
         {
@@ -442,21 +397,13 @@ namespace quan_li_ban_sach
         private void btnHuy_Click(object sender, EventArgs e)
         {
             ResetValues();
-            dgvSach.Enabled = true; 
+            dgvSach.Enabled = true;
             btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
             btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
             btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
             btnTimKiem.Enabled = true; btnTimKiem.Cursor = Cursors.Hand;
             btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
-            txtMaSach.Enabled = false; 
-            txtTenSach.Enabled = false;
-            txtTacGia.Enabled = false;
-            txtNXB.Enabled = false;
-            txtSoLuong.Enabled = false;
-            txtDonGiaNhap.Enabled = false;
-            txtDonGiaBan.Enabled = false;
-            txtAnh.Enabled = false;
-            txtGhiChu.Enabled = false;
+
             LoadDataGridView();
         }
 
@@ -472,6 +419,11 @@ namespace quan_li_ban_sach
                 picAnh.Image = Image.FromFile(dlgOpen.FileName);
                 txtAnh.Text = dlgOpen.FileName;
             }
+        }
+        // -----------------------BUTTON ĐÓNG--------------------------
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         // Sự kiện khi Click vào DataGridView thì hiển thị thông tin lên các control tương ứng
         private void dgvSach_Click(object sender, EventArgs e)
@@ -496,8 +448,70 @@ namespace quan_li_ban_sach
             sql = "SELECT GhiChu FROM tblSach WHERE MaSach = N'" + txtMaSach.Text + "'";
             txtGhiChu.Text = Functions.GetFieldValues(sql);
         }
+        private void txtMaSach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtTenSach.Focus();
+            }
+        }
 
+        private void txtTenSach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtTacGia.Focus();
+            }
+        }
 
+        private void txtTacGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtNXB.Focus();
+            }
+        }
+
+        private void txtNXB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtSoLuong.Focus();
+            }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtDonGiaNhap.Focus();
+            }
+        }
+
+        private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtDonGiaBan.Focus();
+            }
+        }
+        private void txtDonGiaBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnOpen.Focus();
+            }
+        }
+
+        private void btnOpen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtGhiChu.Focus();
+            }
+        }
+        
+      
     }
 }///////
 
