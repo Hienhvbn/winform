@@ -16,7 +16,7 @@ namespace quan_li_ban_sach.Class
         public static void Connect()
         {
             Con = new SqlConnection();   //Khởi tạo đối tượng
-            Con.ConnectionString = "Server = VHien03; Database = qlbs ;Integrated Security = True";
+            Con.ConnectionString = "Server = DESKTOP-1COAG34; Database = qlbs ;Integrated Security = True";
             Con.Open();                  //Mở kết nối
             //Kiểm tra kết nối
             if (Con.State != ConnectionState.Open)

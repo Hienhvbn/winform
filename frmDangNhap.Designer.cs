@@ -261,6 +261,7 @@
             this.txtPassword.TabIndex = 10;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // pictureBox3
             // 
@@ -295,6 +296,7 @@
             this.txtAccount.Size = new System.Drawing.Size(370, 17);
             this.txtAccount.TabIndex = 9;
             this.txtAccount.Click += new System.EventHandler(this.txtAccount_Click);
+            this.txtAccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAccount_KeyPress);
             // 
             // pictureBox2
             // 
