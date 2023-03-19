@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 using quan_li_ban_sach.Class;
 
@@ -56,6 +55,7 @@ namespace quan_li_ban_sach
             txtTenKhach.Text = "";
             txtDiaChi.Text = "";
             mtbDienThoai.Text = "";
+
             txtMaKhach.Enabled = false;
             txtTenKhach.Enabled = false;
             txtDiaChi.Enabled = false;

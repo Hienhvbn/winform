@@ -51,23 +51,23 @@
             // 
             // txtMaKhach
             // 
-            this.txtMaKhach.Location = new System.Drawing.Point(160, 54);
+            this.txtMaKhach.Location = new System.Drawing.Point(160, 55);
             this.txtMaKhach.Name = "txtMaKhach";
-            this.txtMaKhach.Size = new System.Drawing.Size(100, 20);
+            this.txtMaKhach.Size = new System.Drawing.Size(160, 20);
             this.txtMaKhach.TabIndex = 4;
             // 
             // txtTenKhach
             // 
             this.txtTenKhach.Location = new System.Drawing.Point(160, 92);
             this.txtTenKhach.Name = "txtTenKhach";
-            this.txtTenKhach.Size = new System.Drawing.Size(100, 20);
+            this.txtTenKhach.Size = new System.Drawing.Size(159, 20);
             this.txtTenKhach.TabIndex = 5;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(542, 54);
+            this.txtDiaChi.Location = new System.Drawing.Point(527, 54);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(100, 20);
+            this.txtDiaChi.Size = new System.Drawing.Size(160, 20);
             this.txtDiaChi.TabIndex = 6;
             // 
             // dgvKhachHang
@@ -186,9 +186,9 @@
             // 
             // mtbDienThoai
             // 
-            this.mtbDienThoai.Location = new System.Drawing.Point(542, 92);
+            this.mtbDienThoai.Location = new System.Drawing.Point(527, 92);
             this.mtbDienThoai.Name = "mtbDienThoai";
-            this.mtbDienThoai.Size = new System.Drawing.Size(100, 20);
+            this.mtbDienThoai.Size = new System.Drawing.Size(160, 20);
             this.mtbDienThoai.TabIndex = 9;
             // 
             // label1
@@ -215,7 +215,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(459, 57);
+            this.label3.Location = new System.Drawing.Point(444, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 14);
             this.label3.TabIndex = 17;
@@ -225,7 +225,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(459, 95);
+            this.label4.Location = new System.Drawing.Point(444, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 14);
             this.label4.TabIndex = 18;
@@ -268,7 +268,6 @@
         private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button s;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Panel panel2;
