@@ -24,7 +24,7 @@ namespace quan_li_ban_sach
         private void frmQuanLySach_Load(object sender, EventArgs e)
         {
             Class.Functions.Connect();
-            btnHuy.Enabled = false;
+            btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
             txtMaSach.Enabled = false;
             txtTenSach.Enabled = false;
             txtTacGia.Enabled = false;
@@ -496,9 +496,6 @@ namespace quan_li_ban_sach
             sql = "SELECT GhiChu FROM tblSach WHERE MaSach = N'" + txtMaSach.Text + "'";
             txtGhiChu.Text = Functions.GetFieldValues(sql);
         }
-
-
-        
 
 
     }
