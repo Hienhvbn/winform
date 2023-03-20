@@ -228,15 +228,25 @@ namespace quan_li_ban_sach
             if (MessageBox.Show("Bạn có muốn xoá bản ghi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 sql = "DELETE tblSach WHERE MaSach=N'" + txtMaSach.Text + "'";
-                Functions.RunSqlDel(sql);
-                LoadDataGridView();
-                ResetValues();
-                btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
-                btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
-                btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
-                btnTimKiem.Enabled = true; btnTimKiem.Cursor = Cursors.Hand;
-                btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
+                try
+                {
+                    Functions.RunSqlDel(sql);
+                    LoadDataGridView();
+                    MessageBox.Show("Xóa thành công");
+                    ResetValues();
+                    btnXoa.Enabled = true; btnXoa.Cursor = Cursors.Hand;
+                    btnThem.Enabled = true; btnThem.Cursor = Cursors.Hand;
+                    btnSua.Enabled = true; btnSua.Cursor = Cursors.Hand;
+                    btnTimKiem.Enabled = true; btnTimKiem.Cursor = Cursors.Hand;
+                    btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
+                }
+                catch
+                {
+                    MessageBox.Show("Xóa không thành công");
+                }
             }
+
+            
         }
 
         // -----------------------BUTTON SỬA--------------------------
