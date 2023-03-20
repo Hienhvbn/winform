@@ -318,6 +318,7 @@
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(155, 20);
             this.dtpNgaySinh.TabIndex = 8;
+            this.dtpNgaySinh.Value = new System.DateTime(2023, 3, 20, 0, 0, 0, 0);
             // 
             // frmNhanVien
             // 

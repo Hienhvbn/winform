@@ -97,7 +97,7 @@ namespace quan_li_ban_sach
             rdbtnNam.Checked = false;
             rdbtnNu.Checked = false;
             txtDiaChi.Text = "";
-            dtpNgaySinh.Value = DateTime.Now;
+            dtpNgaySinh.Value = DateTime.Today;
             mtbDienThoai.Text = "";
         }
         private void btnLuu_Click(object sender, EventArgs e)
@@ -153,7 +153,6 @@ namespace quan_li_ban_sach
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            txtMaNhanVien.Enabled = true;
             string sql, gt = "";
             if (tblNV.Rows.Count == 0)
             {
