@@ -187,6 +187,7 @@
             // mtbDienThoai
             // 
             this.mtbDienThoai.Location = new System.Drawing.Point(527, 92);
+            this.mtbDienThoai.Mask = "(999) 000-0000";
             this.mtbDienThoai.Name = "mtbDienThoai";
             this.mtbDienThoai.Size = new System.Drawing.Size(160, 20);
             this.mtbDienThoai.TabIndex = 9;

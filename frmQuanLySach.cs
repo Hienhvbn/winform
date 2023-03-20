@@ -249,11 +249,11 @@ namespace quan_li_ban_sach
             btnHuy.Enabled = true; btnHuy.Cursor = Cursors.Hand;
 
             // Bật các textbox để sửa
-            if (txtMaSach.Enabled == false)
+            if (txtTenSach.Enabled == false)
             {
-                txtMaSach.Enabled = true;
-                txtMaSach.Focus();
+                txtMaSach.Enabled = false;
                 txtTenSach.Enabled = true;
+                txtTenSach.Focus();
                 txtTacGia.Enabled = true;
                 txtNXB.Enabled = true;
                 txtSoLuong.Enabled = true;

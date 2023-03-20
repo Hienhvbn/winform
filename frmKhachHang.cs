@@ -192,11 +192,11 @@ namespace quan_li_ban_sach
             btnHuy.Enabled = true; btnHuy.Cursor = Cursors.Hand;
 
             // Bật các textbox để sửa
-            if (txtMaKhach.Enabled == false)
+            if (txtTenKhach.Enabled == false)
             {
-                txtMaKhach.Enabled = true;
-                txtMaKhach.Focus();
+                txtMaKhach.Enabled = false;
                 txtTenKhach.Enabled = true;
+                txtTenKhach.Focus();
                 txtDiaChi.Enabled = true;
                 mtbDienThoai.Enabled = true;
                 return;

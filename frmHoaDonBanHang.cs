@@ -19,75 +19,39 @@ namespace quan_li_ban_sach
         {
             InitializeComponent();
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void frmhoadonban_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            double sl, slcon, slxoa;
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            btnThem.Enabled = true;
+            btnLuu.Enabled = false;
+            btnXoa.Enabled = false;
+            txtMaHDBan.ReadOnly = true;
+            txtTenNhanVien.ReadOnly = true;
+            txtTenKhach.ReadOnly = true;
+            txtDiaChi.ReadOnly = true;
+            txtDienThoai.ReadOnly = true;
+            txttensach.ReadOnly = true;
+            txtdongia.ReadOnly = true;
+            txtThanhTien.ReadOnly = true;
+            txtTongTien.ReadOnly = true;
+            txtGiamGia.Text = "0";
+            txtTongTien.Text = "0";
+            Functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhachHang", cboMaKhach, "MaKhach", "MaKhach");
+            cboMaKhach.SelectedIndex = -1;
+            Functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "MaNhanVien");
+            cboMaNhanVien.SelectedIndex = -1;
+            Functions.FillCombo("SELECT MaSach, TenSach FROM tblSach", cboMaSach, "MaSach", "MaSach");
+            cboMaSach.SelectedIndex = -1;
+            //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
+            if (txtMaHDBan.Text != "")
             {
-                string sql = "SELECT MaSach,SoLuong FROM tblChiTietHD WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
-                DataTable tblS = Functions.GetDataToTable(sql);
-                for (int hang = 0; hang <= tblS.Rows.Count - 1; hang++)
-                {
-                    // Cập nhật lại số lượng cho các mặt hàng
-                    sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblSach WHERE MaSach = N'" + tblS.Rows[hang][0].ToString() + "'"));
-                    slxoa = Convert.ToDouble(tblS.Rows[hang][1].ToString());
-                    slcon = sl + slxoa;
-                    sql = "UPDATE tblSach SET SoLuong =" + slcon + " WHERE MaSach= N'" + tblS.Rows[hang][0].ToString() + "'";
-                    Functions.RunSQL(sql);
-                }
-
-                //Xóa chi tiết hóa đơn
-                sql = "DELETE tblChiTietHD WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
-                Functions.RunSqlDel(sql);
-
-                //Xóa hóa đơn
-                sql = "DELETE tblHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
-                Functions.RunSqlDel(sql);
-                ResetValues();
-                LoadDataGridView();
-                btnXoa.Enabled = false;
-                //btnInHoaDon.Enabled = false;
+                LoadInfoHoaDon();
+                btnXoa.Enabled = true;
             }
+            LoadDataGridView();
         }
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadDataGridView()
         {
-            
+
             string sql;
             sql = "SELECT a.MaSach, b.TenSach, a.SoLuong, b.DonGiaBan, a.GiamGia,a.ThanhTien FROM tblChiTietHD AS a, tblSach AS b WHERE a.MaHDBan = N'" + txtMaHDBan.Text + "' AND a.MaSach=b.MaSach";
             tblCTHDB = Functions.GetDataToTable(sql);
@@ -107,50 +71,6 @@ namespace quan_li_ban_sach
             dgvHDBanHang.AllowUserToAddRows = false;
             dgvHDBanHang.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
-
-        private void frmhoadonban_Load(object sender, EventArgs e)
-        {
-            btnThem.Enabled = true;
-            btnLuu.Enabled = false;
-            btnXoa.Enabled = false;
-            txtMaHDBan.ReadOnly = true;
-            txtTenNhanVien.ReadOnly = true;
-            txtTenKhach.ReadOnly = true;
-            txtDiaChi.ReadOnly = true;
-            txtDienThoai.ReadOnly = true;
-            txttensach.ReadOnly = true;
-            txtdongia.ReadOnly = true;
-            txtThanhTien.ReadOnly = true;
-            txtTongTien.ReadOnly = true;
-            txtGiamGia.Text = "0";
-            txtTongTien.Text = "0";
-            Functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhachHang", cboMaKhach, "MaKhach", "TenKhach");
-            cboMaKhach.SelectedIndex = -1;
-            Functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "TenNhanVien");
-            cboMaNhanVien.SelectedIndex = -1;
-            Functions.FillCombo("SELECT MaSach, TenSach FROM tblSach", cboMaSach, "MaSach", "TenSach");
-            cboMaSach.SelectedIndex = -1;
-            //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
-            if (txtMaHDBan.Text != "")
-            {
-                LoadInfoHoaDon();
-                btnXoa.Enabled = true;
-            }
-            LoadDataGridView();
-        }
-        private void LoadInfoHoaDon()
-        {
-            string str;
-            str = "SELECT NgayBan FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
-            dtpNgayBan.Value = DateTime.Parse((Functions.GetFieldValues(str)));
-            str = "SELECT MaNhanVien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
-            cboMaNhanVien.SelectedValue = Functions.GetFieldValues(str);
-            str = "SELECT MaKhach FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
-            cboMaKhach.SelectedValue = Functions.GetFieldValues(str);
-            str = "SELECT TongTien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
-            txtTongTien.Text = Functions.GetFieldValues(str);
-            //lblBangChu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(txtTongTien.Text);
-        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnXoa.Enabled = false;
@@ -161,19 +81,7 @@ namespace quan_li_ban_sach
             txtMaHDBan.Text = Functions.CreateKey("HDB");
             LoadDataGridView();
         }
-        private void ResetValues()
-        {
-            txtMaHDBan.Text = "";
-            dtpNgayBan.Value = DateTime.Now;
-            cboMaNhanVien.Text = "";
-            cboMaKhach.Text = "";
-            txtTongTien.Text = "0";
-            //lblBangChu.Text = "Bằng chữ: ";
-            cboMaSach.Text = "";
-            txtSoLuong.Text = "";
-            txtGiamGia.Text = "0";
-            txtThanhTien.Text = "0";
-        }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string sql;
@@ -262,6 +170,84 @@ namespace quan_li_ban_sach
             btnThem.Enabled = true;
             //btnInHoaDon.Enabled = true;
         }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            double sl, slcon, slxoa;
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string sql = "SELECT MaSach,SoLuong FROM tblChiTietHD WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+                DataTable tblS = Functions.GetDataToTable(sql);
+                for (int hang = 0; hang <= tblS.Rows.Count - 1; hang++)
+                {
+                    // Cập nhật lại số lượng cho các mặt hàng
+                    sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblSach WHERE MaSach = N'" + tblS.Rows[hang][0].ToString() + "'"));
+                    slxoa = Convert.ToDouble(tblS.Rows[hang][1].ToString());
+                    slcon = sl + slxoa;
+                    sql = "UPDATE tblSach SET SoLuong =" + slcon + " WHERE MaSach= N'" + tblS.Rows[hang][0].ToString() + "'";
+                    Functions.RunSQL(sql);
+                }
+
+                //Xóa chi tiết hóa đơn
+                sql = "DELETE tblChiTietHD WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
+                Functions.RunSqlDel(sql);
+
+                //Xóa hóa đơn
+                sql = "DELETE tblHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
+                Functions.RunSqlDel(sql);
+                ResetValues();
+                LoadDataGridView();
+                btnXoa.Enabled = false;
+                //btnInHoaDon.Enabled = false;
+            }
+        }
+
+        private void btntimkiem_Click_1(object sender, EventArgs e)
+        {
+            if (cboMaHDBan.Text == "")
+            {
+                MessageBox.Show("Bạn phải chọn một mã hóa đơn để tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cboMaHDBan.Focus();
+                return;
+            }
+            txtMaHDBan.Text = cboMaHDBan.Text;
+            LoadInfoHoaDon();
+            LoadDataGridView();
+            btnXoa.Enabled = true;
+            btnLuu.Enabled = true;
+            //btnInHoaDon.Enabled = true;
+            cboMaHDBan.SelectedIndex = -1;
+        }
+
+
+
+        private void LoadInfoHoaDon()
+        {
+            string str;
+            str = "SELECT NgayBan FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            dtpNgayBan.Value = DateTime.Parse((Functions.GetFieldValues(str)));
+            str = "SELECT MaNhanVien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            cboMaNhanVien.SelectedValue = Functions.GetFieldValues(str);
+            str = "SELECT MaKhach FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            cboMaKhach.SelectedValue = Functions.GetFieldValues(str);
+            str = "SELECT TongTien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            txtTongTien.Text = Functions.GetFieldValues(str);
+            //lblBangChu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(txtTongTien.Text);
+        }
+
+        private void ResetValues()
+        {
+            txtMaHDBan.Text = "";
+            dtpNgayBan.Value = DateTime.Now;
+            cboMaNhanVien.Text = "";
+            cboMaKhach.Text = "";
+            txtTongTien.Text = "0";
+            //lblBangChu.Text = "Bằng chữ: ";
+            cboMaSach.Text = "";
+            txtSoLuong.Text = "";
+            txtGiamGia.Text = "0";
+            txtThanhTien.Text = "0";
+        }
+        
         private void ResetValuesHang()
         {
             cboMaSach.Text = "";
@@ -410,22 +396,7 @@ namespace quan_li_ban_sach
             txtdongia.Text = Functions.GetFieldValues(str);
         }
 
-        private void btntimkiem_Click_1(object sender, EventArgs e)
-        {
-            if (cboMaHDBan.Text == "")
-            {
-                MessageBox.Show("Bạn phải chọn một mã hóa đơn để tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboMaHDBan.Focus();
-                return;
-            }
-            txtMaHDBan.Text = cboMaHDBan.Text;
-            LoadInfoHoaDon();
-            LoadDataGridView();
-            btnXoa.Enabled = true;
-            btnLuu.Enabled = true;
-            //btnInHoaDon.Enabled = true;
-            cboMaHDBan.SelectedIndex = -1;
-        }
+        
 
         private void cbomahoadon_DropDown(object sender, EventArgs e)
         {
