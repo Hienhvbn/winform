@@ -63,8 +63,10 @@ namespace quan_li_ban_sach
             }
             txtMaNhanVien.Text = dgvNhanVien.CurrentRow.Cells["MaNhanVien"].Value.ToString();
             txtTenNhanVien.Text = dgvNhanVien.CurrentRow.Cells["TenNhanVien"].Value.ToString();
-            if (dgvNhanVien.CurrentRow.Cells["GioiTinh"].Value.ToString() == "Nam") chkGioiTinh.Checked = true;
-            else chkGioiTinh.Checked = false;
+            if (dgvNhanVien.CurrentRow.Cells["GioiTinh"].Value.ToString() == "Nam") rdbtnNam.Checked = true;
+            else rdbtnNam.Checked = false;
+            if (dgvNhanVien.CurrentRow.Cells["GioiTinh"].Value.ToString() == "Nữ") rdbtnNu.Checked = true;
+            else rdbtnNu.Checked = false;
             txtDiaChi.Text = dgvNhanVien.CurrentRow.Cells["DiaChi"].Value.ToString();
             mtbDienThoai.Text = dgvNhanVien.CurrentRow.Cells["DienThoai"].Value.ToString();
             mskNgaySinh.Text = dgvNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
@@ -92,14 +94,15 @@ namespace quan_li_ban_sach
         {
             txtMaNhanVien.Text = "";
             txtTenNhanVien.Text = "";
-            chkGioiTinh.Checked = false;
             txtDiaChi.Text = "";
             mskNgaySinh.Text = "";
             mtbDienThoai.Text = "";
+            rdbtnNam.Checked = false;
+            rdbtnNu.Checked = false;
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql, gt;
+            string sql, gt="";
             if (txtMaNhanVien.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập mã nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -137,9 +140,9 @@ namespace quan_li_ban_sach
                 mskNgaySinh.Focus();
                 return;
             }
-            if (chkGioiTinh.Checked == true)
+            if (rdbtnNam.Checked == true)
                 gt = "Nam";
-            else
+            if (rdbtnNu.Checked == true)
                 gt = "Nữ";
             sql = "SELECT MaNhanVien FROM tblNhanVien WHERE MaNhanVien=N'" + txtMaNhanVien.Text.Trim() + "'";
             if (Functions.CheckKey(sql))
@@ -159,10 +162,11 @@ namespace quan_li_ban_sach
             btnBoQua.Enabled = false;
             btnLuu.Enabled = false;
             txtMaNhanVien.Enabled = false;
+            
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string sql, gt;
+            string sql, gt="";
             if (tblNV.Rows.Count == 0)
             {
                 MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -204,9 +208,9 @@ namespace quan_li_ban_sach
                 mskNgaySinh.Focus();
                 return;
             }
-            if (chkGioiTinh.Checked == true)
+            if (rdbtnNam.Checked == true)
                 gt = "Nam";
-            else
+            if (rdbtnNu.Checked == true)
                 gt = "Nữ";
             sql = "UPDATE tblNhanVien SET  TenNhanVien=N'" + txtTenNhanVien.Text.Trim().ToString() +
                     "',DiaChi=N'" + txtDiaChi.Text.Trim().ToString() +
@@ -217,6 +221,7 @@ namespace quan_li_ban_sach
             LoadDataGridView();
             ResetValues();
             btnBoQua.Enabled = false;
+            
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -252,7 +257,54 @@ namespace quan_li_ban_sach
 
         private void btnDong_Click(object sender, EventArgs e)
         {
-                        this.Close();
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtMaNhanVien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                txtTenNhanVien.Focus();
+            }
+        }
+
+        private void txtTenNhanVien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtDiaChi.Focus();
+            }
+        }
+
+        private void mtbDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                mtbDienThoai.Focus();
+            }
+        }
+
+        private void mskNgaySinh_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                mskNgaySinh.Focus();
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

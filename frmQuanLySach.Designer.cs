@@ -480,7 +480,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 0);
             this.Name = "frmQuanLySach";
             this.Text = "Quản lý sách";
             this.Load += new System.EventHandler(this.frmQuanLySach_Load);
