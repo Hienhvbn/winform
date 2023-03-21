@@ -23,7 +23,6 @@ namespace quan_li_ban_sach
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-           
             txtMaKhach.Enabled = false; 
             txtTenKhach.Enabled = false;
             txtDiaChi.Enabled = false;
@@ -31,6 +30,8 @@ namespace quan_li_ban_sach
             btnHuy.Enabled = false; btnHuy.Cursor = Cursors.Arrow;
             LoadDataGridView();
         }
+
+        // Hàm tải dữ liệu lên datagridview
         private void LoadDataGridView()
         {
             string sql;
@@ -263,11 +264,7 @@ namespace quan_li_ban_sach
 
             LoadDataGridView();
         }
-        // ---------------------------------BUTTON ĐÓNG---------------------------------
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
         // Sự kiện khi Click vào DataGridView thì sẽ hiển thị lên các control tương ứng 
         private void dgvKhachHang_Click(object sender, EventArgs e)
         {
@@ -283,6 +280,7 @@ namespace quan_li_ban_sach
             mtbDienThoai.Text = dgvKhachHang.CurrentRow.Cells["DienThoai"].Value.ToString();
         }
 
+        // Sự kiện khi nhấn phím Enter
         private void txtMaKhach_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == 13)

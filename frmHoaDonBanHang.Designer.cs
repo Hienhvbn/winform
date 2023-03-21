@@ -58,7 +58,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnDong = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -101,6 +100,7 @@
             // 
             // btntimkiem
             // 
+            this.btntimkiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btntimkiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btntimkiem.FlatAppearance.BorderSize = 0;
             this.btntimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -116,6 +116,7 @@
             // 
             // cboMaHDBan
             // 
+            this.cboMaHDBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboMaHDBan.FormattingEnabled = true;
             this.cboMaHDBan.Location = new System.Drawing.Point(139, 8);
             this.cboMaHDBan.Name = "cboMaHDBan";
@@ -125,6 +126,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(62, 16);
             this.label1.Name = "label1";
@@ -152,7 +154,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnDong);
             this.groupBox1.Controls.Add(this.cboMaKhach);
             this.groupBox1.Controls.Add(this.txtDienThoai);
             this.groupBox1.Controls.Add(this.txtDiaChi);
@@ -170,7 +171,8 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(801, 133);
             this.groupBox1.TabIndex = 1;
@@ -179,6 +181,7 @@
             // 
             // cboMaKhach
             // 
+            this.cboMaKhach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboMaKhach.FormattingEnabled = true;
             this.cboMaKhach.Items.AddRange(new object[] {
             "01",
@@ -193,6 +196,7 @@
             // 
             // txtDienThoai
             // 
+            this.txtDienThoai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDienThoai.Location = new System.Drawing.Point(525, 96);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.ReadOnly = true;
@@ -201,6 +205,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDiaChi.Location = new System.Drawing.Point(525, 71);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.ReadOnly = true;
@@ -209,6 +214,7 @@
             // 
             // txtTenKhach
             // 
+            this.txtTenKhach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenKhach.Location = new System.Drawing.Point(525, 48);
             this.txtTenKhach.Name = "txtTenKhach";
             this.txtTenKhach.ReadOnly = true;
@@ -217,6 +223,7 @@
             // 
             // txtTenNhanVien
             // 
+            this.txtTenNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenNhanVien.Location = new System.Drawing.Point(107, 97);
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.ReadOnly = true;
@@ -225,6 +232,7 @@
             // 
             // cboMaNhanVien
             // 
+            this.cboMaNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboMaNhanVien.FormattingEnabled = true;
             this.cboMaNhanVien.Location = new System.Drawing.Point(107, 70);
             this.cboMaNhanVien.Name = "cboMaNhanVien";
@@ -234,6 +242,7 @@
             // 
             // dtpNgayBan
             // 
+            this.dtpNgayBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpNgayBan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayBan.Location = new System.Drawing.Point(107, 48);
             this.dtpNgayBan.Name = "dtpNgayBan";
@@ -242,6 +251,7 @@
             // 
             // txtMaHDBan
             // 
+            this.txtMaHDBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaHDBan.Location = new System.Drawing.Point(107, 21);
             this.txtMaHDBan.Name = "txtMaHDBan";
             this.txtMaHDBan.ReadOnly = true;
@@ -250,6 +260,7 @@
             // 
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(434, 103);
             this.label11.Name = "label11";
@@ -259,6 +270,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(434, 78);
             this.label10.Name = "label10";
@@ -268,6 +280,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(434, 54);
             this.label9.Name = "label9";
@@ -277,6 +290,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(434, 28);
             this.label8.Name = "label8";
@@ -286,6 +300,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(23, 103);
             this.label7.Name = "label7";
@@ -295,6 +310,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(23, 78);
             this.label6.Name = "label6";
@@ -304,6 +320,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(23, 54);
             this.label5.Name = "label5";
@@ -313,6 +330,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(23, 28);
             this.label4.Name = "label4";
@@ -366,6 +384,7 @@
             // 
             // txtTongTien
             // 
+            this.txtTongTien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTongTien.Location = new System.Drawing.Point(652, 6);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(134, 20);
@@ -373,6 +392,7 @@
             // 
             // label20
             // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(591, 13);
             this.label20.Name = "label20";
@@ -382,6 +402,7 @@
             // 
             // label18
             // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(20, 3);
             this.label18.Name = "label18";
@@ -400,32 +421,15 @@
             this.panel3.Size = new System.Drawing.Size(795, 34);
             this.panel3.TabIndex = 5;
             // 
-            // btnDong
-            // 
-            this.btnDong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDong.BackColor = System.Drawing.SystemColors.Control;
-            this.btnDong.FlatAppearance.BorderSize = 0;
-            this.btnDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDong.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.btnDong.Location = new System.Drawing.Point(758, -3);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(40, 40);
-            this.btnDong.TabIndex = 0;
-            this.btnDong.Text = "X";
-            this.btnDong.UseVisualStyleBackColor = false;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
-            // 
             // btnXoa
             // 
-            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnXoa.FlatAppearance.BorderSize = 0;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnXoa.Location = new System.Drawing.Point(356, 6);
+            this.btnXoa.Location = new System.Drawing.Point(455, 6);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(95, 23);
             this.btnXoa.TabIndex = 0;
@@ -435,14 +439,13 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnLuu.FlatAppearance.BorderSize = 0;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLuu.Location = new System.Drawing.Point(231, 6);
+            this.btnLuu.Location = new System.Drawing.Point(330, 6);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(95, 23);
             this.btnLuu.TabIndex = 0;
@@ -452,14 +455,13 @@
             // 
             // btnThem
             // 
-            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnThem.Location = new System.Drawing.Point(110, 6);
+            this.btnThem.Location = new System.Drawing.Point(209, 6);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(95, 23);
             this.btnThem.TabIndex = 0;
@@ -489,6 +491,7 @@
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(9, 11);
             this.label12.Name = "label12";
@@ -498,6 +501,7 @@
             // 
             // txtThanhTien
             // 
+            this.txtThanhTien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtThanhTien.Location = new System.Drawing.Point(581, 35);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.ReadOnly = true;
@@ -506,6 +510,7 @@
             // 
             // txtGiamGia
             // 
+            this.txtGiamGia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGiamGia.Location = new System.Drawing.Point(333, 35);
             this.txtGiamGia.Name = "txtGiamGia";
             this.txtGiamGia.Size = new System.Drawing.Size(141, 20);
@@ -514,6 +519,7 @@
             // 
             // txtdongia
             // 
+            this.txtdongia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtdongia.Location = new System.Drawing.Point(581, 3);
             this.txtdongia.Name = "txtdongia";
             this.txtdongia.ReadOnly = true;
@@ -522,6 +528,7 @@
             // 
             // cboMaSach
             // 
+            this.cboMaSach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboMaSach.FormattingEnabled = true;
             this.cboMaSach.Location = new System.Drawing.Point(63, 3);
             this.cboMaSach.Name = "cboMaSach";
@@ -531,6 +538,7 @@
             // 
             // label17
             // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(519, 42);
             this.label17.Name = "label17";
@@ -540,6 +548,7 @@
             // 
             // label13
             // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(9, 42);
             this.label13.Name = "label13";
@@ -549,6 +558,7 @@
             // 
             // label16
             // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(519, 11);
             this.label16.Name = "label16";
@@ -558,6 +568,7 @@
             // 
             // txtSoLuong
             // 
+            this.txtSoLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoLuong.Location = new System.Drawing.Point(63, 35);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(147, 20);
@@ -566,6 +577,7 @@
             // 
             // label14
             // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(272, 42);
             this.label14.Name = "label14";
@@ -575,6 +587,7 @@
             // 
             // txttensach
             // 
+            this.txttensach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txttensach.Location = new System.Drawing.Point(333, 4);
             this.txttensach.Name = "txttensach";
             this.txttensach.ReadOnly = true;
@@ -583,6 +596,7 @@
             // 
             // label15
             // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(272, 11);
             this.label15.Name = "label15";
@@ -602,7 +616,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoá đơn bán hàng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHoaDonBanHang_FormClosing);
-            this.Load += new System.EventHandler(this.frmhoadonban_Load);
+            this.Load += new System.EventHandler(this.frmHoaDonBanHang_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -654,7 +668,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnThem;

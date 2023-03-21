@@ -430,11 +430,7 @@ namespace quan_li_ban_sach
                 txtAnh.Text = dlgOpen.FileName;
             }
         }
-        // -----------------------BUTTON ĐÓNG--------------------------
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
         // Sự kiện khi Click vào DataGridView thì hiển thị thông tin lên các control tương ứng
         private void dgvSach_Click(object sender, EventArgs e)
         {

@@ -36,7 +36,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.btnDong = new System.Windows.Forms.Button();
             this.dgvSach = new System.Windows.Forms.DataGridView();
             this.lblMaSach = new System.Windows.Forms.Label();
             this.lblTenSach = new System.Windows.Forms.Label();
@@ -181,24 +180,6 @@
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnDong
-            // 
-            this.btnDong.BackColor = System.Drawing.SystemColors.Control;
-            this.btnDong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDong.FlatAppearance.BorderSize = 0;
-            this.btnDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDong.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(51)))));
-            this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDong.Location = new System.Drawing.Point(112, 0);
-            this.btnDong.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(40, 40);
-            this.btnDong.TabIndex = 7;
-            this.btnDong.Text = "X";
-            this.btnDong.UseVisualStyleBackColor = false;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
-            // 
             // dgvSach
             // 
             this.dgvSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -214,10 +195,11 @@
             // 
             // lblMaSach
             // 
+            this.lblMaSach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMaSach.AutoSize = true;
             this.lblMaSach.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaSach.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMaSach.Location = new System.Drawing.Point(18, 67);
+            this.lblMaSach.Location = new System.Drawing.Point(18, 55);
             this.lblMaSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMaSach.Name = "lblMaSach";
             this.lblMaSach.Size = new System.Drawing.Size(65, 14);
@@ -226,10 +208,11 @@
             // 
             // lblTenSach
             // 
+            this.lblTenSach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTenSach.AutoSize = true;
             this.lblTenSach.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTenSach.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTenSach.Location = new System.Drawing.Point(18, 95);
+            this.lblTenSach.Location = new System.Drawing.Point(18, 87);
             this.lblTenSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTenSach.Name = "lblTenSach";
             this.lblTenSach.Size = new System.Drawing.Size(70, 14);
@@ -238,10 +221,11 @@
             // 
             // lblTacGia
             // 
+            this.lblTacGia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTacGia.AutoSize = true;
             this.lblTacGia.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTacGia.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTacGia.Location = new System.Drawing.Point(18, 121);
+            this.lblTacGia.Location = new System.Drawing.Point(18, 116);
             this.lblTacGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTacGia.Name = "lblTacGia";
             this.lblTacGia.Size = new System.Drawing.Size(59, 14);
@@ -250,10 +234,11 @@
             // 
             // lblNXB
             // 
+            this.lblNXB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNXB.AutoSize = true;
             this.lblNXB.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNXB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNXB.Location = new System.Drawing.Point(18, 148);
+            this.lblNXB.Location = new System.Drawing.Point(18, 146);
             this.lblNXB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNXB.Name = "lblNXB";
             this.lblNXB.Size = new System.Drawing.Size(40, 14);
@@ -262,10 +247,11 @@
             // 
             // lblSoLuong
             // 
+            this.lblSoLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSoLuong.AutoSize = true;
             this.lblSoLuong.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoLuong.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSoLuong.Location = new System.Drawing.Point(18, 175);
+            this.lblSoLuong.Location = new System.Drawing.Point(18, 176);
             this.lblSoLuong.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(74, 14);
@@ -274,7 +260,8 @@
             // 
             // txtMaSach
             // 
-            this.txtMaSach.Location = new System.Drawing.Point(91, 64);
+            this.txtMaSach.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMaSach.Location = new System.Drawing.Point(91, 52);
             this.txtMaSach.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaSach.Name = "txtMaSach";
             this.txtMaSach.Size = new System.Drawing.Size(100, 22);
@@ -283,7 +270,8 @@
             // 
             // txtTenSach
             // 
-            this.txtTenSach.Location = new System.Drawing.Point(91, 91);
+            this.txtTenSach.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTenSach.Location = new System.Drawing.Point(91, 83);
             this.txtTenSach.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenSach.Name = "txtTenSach";
             this.txtTenSach.Size = new System.Drawing.Size(100, 22);
@@ -292,7 +280,8 @@
             // 
             // txtTacGia
             // 
-            this.txtTacGia.Location = new System.Drawing.Point(91, 118);
+            this.txtTacGia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTacGia.Location = new System.Drawing.Point(91, 113);
             this.txtTacGia.Margin = new System.Windows.Forms.Padding(4);
             this.txtTacGia.Name = "txtTacGia";
             this.txtTacGia.Size = new System.Drawing.Size(100, 22);
@@ -301,7 +290,8 @@
             // 
             // txtNXB
             // 
-            this.txtNXB.Location = new System.Drawing.Point(91, 145);
+            this.txtNXB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNXB.Location = new System.Drawing.Point(91, 143);
             this.txtNXB.Margin = new System.Windows.Forms.Padding(4);
             this.txtNXB.Name = "txtNXB";
             this.txtNXB.Size = new System.Drawing.Size(100, 22);
@@ -310,7 +300,8 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(91, 172);
+            this.txtSoLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSoLuong.Location = new System.Drawing.Point(91, 173);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 22);
@@ -319,10 +310,11 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(425, 47);
+            this.label9.Location = new System.Drawing.Point(425, 34);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 14);
@@ -331,10 +323,11 @@
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(425, 91);
+            this.label10.Location = new System.Drawing.Point(425, 88);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 14);
@@ -343,7 +336,8 @@
             // 
             // txtAnh
             // 
-            this.txtAnh.Location = new System.Drawing.Point(428, 65);
+            this.txtAnh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAnh.Location = new System.Drawing.Point(428, 52);
             this.txtAnh.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnh.Multiline = true;
             this.txtAnh.Name = "txtAnh";
@@ -352,16 +346,18 @@
             // 
             // txtGhiChu
             // 
+            this.txtGhiChu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGhiChu.Location = new System.Drawing.Point(428, 104);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(4);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(137, 78);
+            this.txtGhiChu.Size = new System.Drawing.Size(206, 78);
             this.txtGhiChu.TabIndex = 26;
             // 
             // txtDonGiaNhap
             // 
-            this.txtDonGiaNhap.Location = new System.Drawing.Point(302, 64);
+            this.txtDonGiaNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDonGiaNhap.Location = new System.Drawing.Point(302, 52);
             this.txtDonGiaNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtDonGiaNhap.Name = "txtDonGiaNhap";
             this.txtDonGiaNhap.Size = new System.Drawing.Size(100, 22);
@@ -370,7 +366,8 @@
             // 
             // txtDonGiaBan
             // 
-            this.txtDonGiaBan.Location = new System.Drawing.Point(302, 91);
+            this.txtDonGiaBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDonGiaBan.Location = new System.Drawing.Point(302, 89);
             this.txtDonGiaBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtDonGiaBan.Name = "txtDonGiaBan";
             this.txtDonGiaBan.Size = new System.Drawing.Size(100, 22);
@@ -379,10 +376,11 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(201, 67);
+            this.label1.Location = new System.Drawing.Point(201, 55);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 14);
@@ -391,10 +389,11 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(201, 95);
+            this.label2.Location = new System.Drawing.Point(201, 93);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 14);
@@ -403,6 +402,7 @@
             // 
             // picAnh
             // 
+            this.picAnh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picAnh.BackColor = System.Drawing.SystemColors.ControlDark;
             this.picAnh.Location = new System.Drawing.Point(14, 48);
             this.picAnh.Margin = new System.Windows.Forms.Padding(4);
@@ -414,8 +414,9 @@
             // 
             // btnOpen
             // 
+            this.btnOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOpen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpen.Location = new System.Drawing.Point(573, 64);
+            this.btnOpen.Location = new System.Drawing.Point(573, 51);
             this.btnOpen.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(61, 22);
@@ -436,7 +437,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnDong);
             this.panel3.Controls.Add(this.picAnh);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(648, 0);
@@ -497,7 +497,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnHienthiDS;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnHuy;

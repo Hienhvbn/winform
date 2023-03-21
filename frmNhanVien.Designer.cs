@@ -46,7 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDong = new System.Windows.Forms.Button();
             this.rdbtnNam = new System.Windows.Forms.RadioButton();
             this.rdbtnNu = new System.Windows.Forms.RadioButton();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
@@ -67,7 +66,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 46);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnLuu
             // 
@@ -152,6 +150,7 @@
             // 
             // mtbDienThoai
             // 
+            this.mtbDienThoai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mtbDienThoai.Location = new System.Drawing.Point(549, 78);
             this.mtbDienThoai.Mask = "(999) 000-0000";
             this.mtbDienThoai.Name = "mtbDienThoai";
@@ -161,6 +160,7 @@
             // 
             // txtTenNhanVien
             // 
+            this.txtTenNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenNhanVien.Location = new System.Drawing.Point(161, 78);
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Size = new System.Drawing.Size(155, 20);
@@ -169,6 +169,7 @@
             // 
             // txtMaNhanVien
             // 
+            this.txtMaNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaNhanVien.Location = new System.Drawing.Point(161, 39);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(155, 20);
@@ -177,6 +178,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDiaChi.Location = new System.Drawing.Point(549, 39);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(155, 20);
@@ -185,6 +187,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(52, 119);
@@ -192,10 +195,10 @@
             this.label4.Size = new System.Drawing.Size(67, 14);
             this.label4.TabIndex = 0;
             this.label4.Text = "Giới tính:";
-            this.label4.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(52, 80);
@@ -203,10 +206,10 @@
             this.label3.Size = new System.Drawing.Size(104, 14);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên nhân viên:";
-            this.label3.Click += new System.EventHandler(this.label2_Click);
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(457, 119);
@@ -214,10 +217,10 @@
             this.label7.Size = new System.Drawing.Size(77, 14);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ngày sinh:";
-            this.label7.Click += new System.EventHandler(this.label2_Click);
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(457, 80);
@@ -225,10 +228,10 @@
             this.label6.Size = new System.Drawing.Size(79, 14);
             this.label6.TabIndex = 0;
             this.label6.Text = "Điện thoại:";
-            this.label6.Click += new System.EventHandler(this.label2_Click);
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(457, 41);
@@ -236,10 +239,10 @@
             this.label5.Size = new System.Drawing.Size(57, 14);
             this.label5.TabIndex = 0;
             this.label5.Text = "Địa chỉ:";
-            this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(52, 41);
@@ -247,7 +250,6 @@
             this.label2.Size = new System.Drawing.Size(99, 14);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã nhân viên:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // dgvNhanVien
             // 
@@ -258,7 +260,6 @@
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.Size = new System.Drawing.Size(800, 272);
             this.dgvNhanVien.TabIndex = 2;
-            this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
             this.dgvNhanVien.Click += new System.EventHandler(this.dgvNhanVien_Click);
             // 
             // panel2
@@ -269,26 +270,10 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 272);
             this.panel2.TabIndex = 3;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // btnDong
-            // 
-            this.btnDong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDong.FlatAppearance.BorderSize = 0;
-            this.btnDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDong.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDong.Location = new System.Drawing.Point(760, 0);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(40, 40);
-            this.btnDong.TabIndex = 0;
-            this.btnDong.Text = "X";
-            this.btnDong.UseVisualStyleBackColor = true;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // rdbtnNam
             // 
+            this.rdbtnNam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdbtnNam.AutoSize = true;
             this.rdbtnNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbtnNam.Location = new System.Drawing.Point(123, 117);
@@ -301,6 +286,7 @@
             // 
             // rdbtnNu
             // 
+            this.rdbtnNu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdbtnNu.AutoSize = true;
             this.rdbtnNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbtnNu.Location = new System.Drawing.Point(187, 117);
@@ -313,6 +299,7 @@
             // 
             // dtpNgaySinh
             // 
+            this.dtpNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgaySinh.Location = new System.Drawing.Point(549, 119);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
@@ -326,7 +313,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.dtpNgaySinh);
-            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.rdbtnNu);
             this.Controls.Add(this.mtbDienThoai);
@@ -364,7 +350,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnBoQua;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnXoa;

@@ -19,7 +19,7 @@ namespace quan_li_ban_sach
         {
             InitializeComponent();
         }
-        private void frmhoadonban_Load(object sender, EventArgs e)
+        private void frmHoaDonBanHang_Load(object sender, EventArgs e)
         {
             btnThem.Enabled = true;
             btnLuu.Enabled = false;
@@ -89,14 +89,7 @@ namespace quan_li_ban_sach
             sql = "SELECT MaHDBan FROM tblHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
             if (!Functions.CheckKey(sql))
             {
-                // Mã hóa đơn chưa có, tiến hành lưu các thông tin chung
-                // Mã HDBan được sinh tự động do đó không có trường hợp trùng khóa
-                /*if (txtNgayBan.Text.Length == 0)
-                {
-                    MessageBox.Show("Bạn phải nhập ngày bán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtNgayBan.Focus();
-                    return;
-                }*/
+                
                 if (cboMaNhanVien.Text.Length == 0)
                 {
                     MessageBox.Show("Bạn phải nhập nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -404,9 +397,7 @@ namespace quan_li_ban_sach
             cboMaHDBan.SelectedIndex = -1;
         }
 
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
+        
     }
 }

@@ -27,6 +27,18 @@ namespace quan_li_ban_sach
             btnXoa.Enabled = false;
             LoadDataGridView();
         }
+        private void ResetValues()
+        {
+            txtMaNhanVien.Text = "";
+            txtTenNhanVien.Text = "";
+            rdbtnNam.Checked = false;
+            rdbtnNu.Checked = false;
+            txtDiaChi.Text = "";
+            dtpNgaySinh.Value = DateTime.Today;
+            mtbDienThoai.Text = "";
+        }
+
+        // Hàm tải dữ liệu lên DataGridView
         public void LoadDataGridView()
         {
             string sql;
@@ -48,6 +60,8 @@ namespace quan_li_ban_sach
             dgvNhanVien.AllowUserToAddRows = false;
             dgvNhanVien.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
+
+        // Sự kiện khi Click vào DataGridView thì hiển thị thông tin lên các control tương ứng
         private void dgvNhanVien_Click(object sender, EventArgs e)
         {
             if (btnThem.Enabled == false)
@@ -74,11 +88,7 @@ namespace quan_li_ban_sach
             btnXoa.Enabled = true;
             btnXoa.Enabled = true;
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        // ----------------------------BUTTON THÊM--------------------------------
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnSua.Enabled = false;
@@ -90,16 +100,7 @@ namespace quan_li_ban_sach
             txtMaNhanVien.Enabled = true;
             txtMaNhanVien.Focus();
         }
-        private void ResetValues()
-        {
-            txtMaNhanVien.Text = "";
-            txtTenNhanVien.Text = "";
-            rdbtnNam.Checked = false;
-            rdbtnNu.Checked = false;
-            txtDiaChi.Text = "";
-            dtpNgaySinh.Value = DateTime.Today;
-            mtbDienThoai.Text = "";
-        }
+        // ----------------------------BUTTON LƯU--------------------------------
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string sql, gt="";
@@ -151,6 +152,7 @@ namespace quan_li_ban_sach
             txtMaNhanVien.Enabled = false;
 
         }
+        // ----------------------------BUTTON SỬA--------------------------------
         private void btnSua_Click(object sender, EventArgs e)
         {
             string sql, gt = "";
@@ -197,6 +199,7 @@ namespace quan_li_ban_sach
             btnBoQua.Enabled = false;
 
         }
+        // ----------------------------BUTTON XÓA--------------------------------
         private void btnXoa_Click(object sender, EventArgs e)
         {
             string sql;
@@ -218,6 +221,7 @@ namespace quan_li_ban_sach
                 ResetValues();
             }
         }
+        // ----------------------------BUTTON HỦY--------------------------------
         private void btnBoQua_Click(object sender, EventArgs e)
         {
             ResetValues();
@@ -229,21 +233,8 @@ namespace quan_li_ban_sach
             txtMaNhanVien.Enabled = false;
         }
 
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        // Sự kiện khi nhấn phím Enter
         private void txtMaNhanVien_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == 13)
@@ -266,12 +257,6 @@ namespace quan_li_ban_sach
             {
                 dtpNgaySinh.Focus();
             }
-        }
-
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void txtDiaChi_KeyPress(object sender, KeyPressEventArgs e)
