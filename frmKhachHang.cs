@@ -268,7 +268,7 @@ namespace quan_li_ban_sach
         {
             this.Close();
         }
-        // Sự kiện khi Click vào DataGridView thì sẽ hiển thị lên các control tương ứng
+        // Sự kiện khi Click vào DataGridView thì sẽ hiển thị lên các control tương ứng 
         private void dgvKhachHang_Click(object sender, EventArgs e)
         {
 
