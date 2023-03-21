@@ -282,11 +282,29 @@ namespace quan_li_ban_sach
             txtDiaChi.Text = dgvKhachHang.CurrentRow.Cells["DiaChi"].Value.ToString();
             mtbDienThoai.Text = dgvKhachHang.CurrentRow.Cells["DienThoai"].Value.ToString();
         }
-        private void txtMaKhach_KeyUp(object sender, KeyEventArgs e)
+
+        private void txtMaKhach_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-                SendKeys.Send("{TAB}");
+            if(e.KeyChar == 13)
+            {
+                txtTenKhach.Focus();
+            }
         }
-        
+
+        private void txtTenKhach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtDiaChi.Focus();
+            }
+        }
+
+        private void txtDiaChi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                mtbDienThoai.Focus();
+            }
+        }
     }
 }

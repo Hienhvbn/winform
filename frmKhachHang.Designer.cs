@@ -55,6 +55,7 @@
             this.txtMaKhach.Name = "txtMaKhach";
             this.txtMaKhach.Size = new System.Drawing.Size(160, 20);
             this.txtMaKhach.TabIndex = 4;
+            this.txtMaKhach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaKhach_KeyPress);
             // 
             // txtTenKhach
             // 
@@ -62,6 +63,7 @@
             this.txtTenKhach.Name = "txtTenKhach";
             this.txtTenKhach.Size = new System.Drawing.Size(159, 20);
             this.txtTenKhach.TabIndex = 5;
+            this.txtTenKhach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenKhach_KeyPress);
             // 
             // txtDiaChi
             // 
@@ -69,6 +71,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(160, 20);
             this.txtDiaChi.TabIndex = 6;
+            this.txtDiaChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiaChi_KeyPress);
             // 
             // dgvKhachHang
             // 
